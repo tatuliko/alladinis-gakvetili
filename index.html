@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ალადინი — აღმოსავლური ზღაპარი</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700&family=Noto+Serif+Georgian:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF8F3;
+      --card: #FFFFFF;
+      --text: #1E293B;
+      --muted: #475569;
+      --accent: #0F766E;
+      --accent-hover: #0D5E57;
+      --accent-light: #CCFBF1;
+      --gold: #D97706;
+      --gold-light: #FEF3C7;
+      --border: #E2E8F0;
+      --success-bg: #DCFCE7;
+      --success-text: #166534;
+      --error-bg: #FEE2E2;
+      --error-text: #991B1B;
+      --font-size: 19px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
+    }
+
+    body {
+      font-family: 'Noto Sans Georgian', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background-color: var(--card);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 20px;
+    }
+
+    .nav-container {
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav { display: flex; gap: 6px; flex-wrap: wrap; }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+    nav a:hover, nav a:focus-visible {
+      background-color: var(--accent-light);
+      color: var(--accent);
+      outline: 2px solid var(--accent);
+    }
+
+    main { max-width: 840px; margin: 0 auto; padding: 24px 20px; }
+
+    .hero {
+      text-align: center;
+      padding: 36px 24px;
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--gold-light);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif Georgian', serif;
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 24px;
+      font-size: 1.05rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--accent);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 12px 26px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    .btn-primary:hover, .btn-primary:focus-visible {
+      background-color: var(--accent-hover);
+      outline: 3px solid var(--accent-light);
+    }
+
+    section {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    h2 { font-size: 1.4rem; }
+
+    .font-controls { display: flex; gap: 8px; }
+    .font-btn {
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .font-btn:hover, .font-btn:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent);
+      outline: 2px solid var(--accent);
+    }
+
+    .story-intro {
+      background-color: var(--bg);
+      padding: 16px 20px;
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      font-size: var(--font-size);
+    }
+
+    .story-body {
+      font-family: 'Noto Serif Georgian', serif;
+      font-size: var(--font-size);
+      line-height: 1.9;
+    }
+    .story-body p { margin-bottom: 16px; text-indent: 1.2em; }
+
+    .illustration {
+      display: flex;
+      justify-content: center;
+      margin: 24px 0;
+      padding: 16px;
+      background-color: var(--bg);
+      border-radius: 16px;
+    }
+
+    .words-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .word-card {
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .word-title { font-weight: 700; color: var(--accent); font-size: 1.1rem; margin-bottom: 4px; }
+    .word-desc { font-size: 0.95rem; }
+
+    /* დავალებების ბლოკები */
+    .task-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: var(--bg);
+    }
+    .task-title { font-weight: 700; font-size: 1.08rem; margin-bottom: 6px; }
+    .task-subtitle { font-size: 0.94rem; color: var(--muted); margin-bottom: 14px; }
+    .options { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+
+    .option-btn {
+      text-align: left;
+      background-color: var(--card);
+      border: 2px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.98rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .option-btn:hover:not(:disabled), .option-btn:focus-visible:not(:disabled) {
+      border-color: var(--accent);
+      background-color: var(--accent-light);
+      outline: none;
+    }
+    .option-btn.correct {
+      background-color: var(--success-bg);
+      border-color: var(--success-text);
+      color: var(--success-text);
+      font-weight: 700;
+    }
+    .option-btn.wrong {
+      background-color: var(--error-bg);
+      border-color: var(--error-text);
+      color: var(--error-text);
+    }
+
+    .feedback {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      display: none;
+    }
+    .feedback.show { display: block; }
+    .feedback.success { background-color: var(--success-bg); color: var(--success-text); }
+    .feedback.hint { background-color: var(--gold-light); color: #92400E; }
+    .feedback.error { background-color: var(--error-bg); color: var(--error-text); }
+
+    /* დავალება 6: სიტყვების დაკავშირება */
+    .match-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background-color: var(--card);
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .match-word { font-weight: 700; color: var(--accent); }
+    select {
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 2px solid var(--border);
+      font-family: inherit;
+      font-size: 0.95rem;
+      background-color: var(--card);
+      color: var(--text);
+      min-width: 240px;
+    }
+    select:focus-visible { border-color: var(--accent); outline: none; }
+
+    /* დავალება 7: ეპიზოდების ილუსტრაციები (დალაგება და დასათაურება) */
+    .episode-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .episode-card {
+      background-color: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      cursor: grab;
+    }
+    .episode-card:active { cursor: grabbing; }
+    .episode-card.drag-over { border-color: var(--accent); background-color: var(--accent-light); }
+    .episode-card.correct-card { border-color: var(--success-text); background-color: #F0FDF4; }
+    .episode-card.wrong-card { border-color: var(--error-text); }
+
+    .episode-order-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .episode-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      color: #FFFFFF;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+
+    .move-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .move-btn {
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      width: 30px;
+      height: 26px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .move-btn:hover:not(:disabled), .move-btn:focus-visible:not(:disabled) {
+      background-color: var(--accent-light);
+      border-color: var(--accent);
+      outline: none;
+    }
+    .move-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .episode-art {
+      width: 150px;
+      height: 105px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      flex-shrink: 0;
+      background-color: #FFFDF9;
+    }
+
+    .episode-controls {
+      flex: 1;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .episode-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .episode-controls select, .episode-custom-input {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 2px solid var(--border);
+      font-family: inherit;
+      font-size: 0.94rem;
+      background-color: var(--card);
+    }
+
+    /* დავალება 8: შემოქმედებითი დავალება */
+    .magic-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+    .magic-input {
+      flex: 1;
+      min-width: 220px;
+      padding: 12px 14px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .magic-input:focus-visible { border-color: var(--accent); outline: none; }
+
+    .magic-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .magic-tag {
+      background-color: var(--card);
+      border: 1px solid var(--gold);
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .quiz-footer {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .score-text { font-weight: 700; color: var(--accent); font-size: 1.05rem; }
+    .btn-secondary {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      section { padding: 20px 16px; }
+      select { width: 100%; }
+      .episode-art { width: 100%; height: 125px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="#top" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 3v3M5.6 5.6l2.1 2.1M18.4 5.6l-2.1 2.1M4 15h14l2-4H7l-3 4zM7 15c0 2.5 2 4 5 4s5-1.5 5-4"/>
+        </svg>
+        ალადინი
+      </a>
+      <nav aria-label="მთავარი მენიუ">
+        <a href="#zgapari">ზღაპარი</a>
+        <a href="#sityvebi">სიტყვები</a>
+        <a href="#davalebebi">დავალებები</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <span class="badge">აღმოსავლური ზღაპარი • IV კლასი</span>
+      <h1>ალადინი</h1>
+      <p>წაიკითხე ჯინის გათავისუფლების ამბავი, ისწავლე ახალი სიტყვები, დაალაგე ეპიზოდების ილუსტრაციები და უპასუხე კითხვებს.</p>
+      <a href="#zgapari" class="btn-primary">დაიწყე კითხვა</a>
+    </div>
+
+    <!-- სექცია 1: ზღაპარი -->
+    <section id="zgapari" aria-labelledby="zgapari-title">
+      <div class="section-header">
+        <h2 id="zgapari-title">წაიკითხე ზღაპარი</h2>
+        <div class="font-controls" aria-label="ტექსტის ზომის შეცვლა">
+          <button type="button" class="font-btn" id="font-decrease" aria-label="შრიფტის დაპატარავება">A-</button>
+          <button type="button" class="font-btn" id="font-increase" aria-label="შრიფტის გადიდება">A+</button>
+        </div>
+      </div>
+
+      <div class="story-intro">
+        ვინ არ იცნობს ალადინს — ღარიბ, გულკეთილ ბიჭს, რომელმაც მეფის ასულ იასმინის გული მოიგო და ორმოცი ყაჩაღი გააბრიყვა. ახლა კი ჯინის გათავისუფლების ამბავს წაიკითხავ.
+      </div>
+
+      <div class="illustration">
+        <svg width="200" height="110" viewBox="0 0 200 110" role="img" aria-label="ჯადოსნური ოქროს ლამპარი და ცისფერი კვამლი">
+          <path d="M135 55 C145 35, 125 25, 140 12" fill="none" stroke="#0F766E" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 4"/>
+          <path d="M50 75 C50 60, 80 55, 110 55 L145 45 L135 65 C135 80, 115 90, 90 90 C65 90, 50 85, 50 75 Z" fill="#F59E0B" stroke="#B45309" stroke-width="2.5"/>
+          <path d="M50 72 C32 72, 32 55, 52 60" fill="none" stroke="#B45309" stroke-width="3" stroke-linecap="round"/>
+          <ellipse cx="90" cy="93" rx="22" ry="4" fill="#D97706"/>
+          <circle cx="92" cy="51" r="5" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <div class="story-body">
+        <p>გამოქვაბულში ჩამწყვდეულმა ალადინმა დამტვერილ ლამპარს ხეხვა დაუწყო, რათა ზედ ამოტვიფრული წარწერა წაეკითხა. უცებ ლამპარი აძაგძაგდა, იქიდან კაშკაშა შუქი ამოიფრქვა, გამოქვაბული კვამლის ღრუბელმა დაფარა, რომელიც ჯერ დაბზრიალდა და მერე ცისფერ ლანდად გადაიქცა.</p>
+        <p>— უჰ, რა საშინელებაა ათასი წელი ასეთ სივიწროვეში ყოფნა! — წარმოთქვა ლანდმა, როცა კვამლი გაიფანტა.</p>
+        <p>— შენ ვინ ხარ? — ჰკითხა ალადინმა.</p>
+        <p>— მე ამ ლამპრის ერთადერთი და უძლიერესი მკვიდრი ვარ. შენ კი ჩემი ბედნიერი ბატონი. ჩაიფიქრე სამი ნატვრა, — არც მეტი, არც ნაკლები, — და შეგისრულებ.</p>
+        <p>— თუ ასეთი ძლევამოსილი ხარ, როგორც თავი მოგაქვს, იქნებ აქედან ამომიყვანო, — მიმართა ყმაწვილმა ნიშნის მოგებით.</p>
+        <p>... და მაშინვე ყველა მიწის ზემოთ აღმოჩნდა. მალე ხალიჩაზე მოკალათებული მეგობრები აგრაბაჰისკენ მიქროდნენ.</p>
+        <p>— ჩემს სამ სურვილთან დაკავშირებით რას ფიქრობ? — დაინტერესდა ალადინი.</p>
+        <p>— ჰმ, ერთი ხომ უკვე შეგისრულე! — უპასუხა ჯინმა.</p>
+        <p>— ასეც არ არის! — ეშმაკურად ჩაიცინა ყმაწვილმა. — ეს ჩემი სურვილი არ იყო. შენ ეს თავად გინდოდა და იმიტომ გააკეთე. იცი, ყველაზე ძალიან რა მინდა? — უთხრა, როცა თავშესაფრამდე მიაღწიეს, — პრინცი მინდა გავხდე და ცოლად იასმინი შევირთო.</p>
+        <p>იმავე წამს სულმა გადიდება დაიწყო. გადიდდა, გადიდდა... და ყმაწვილის გარშემო ყველაფერი დაბზრიალდა. ალადინი თავით ფეხებამდე გადასხვაფერდა.</p>
+        <p>— დიდებულად გამოიყურები! — მიმართა ჯინმა ალადინს, როცა ძვირფას სამოსში გამოაწყო. — ნამდვილ პრინცს ჰგავხარ.</p>
+        <p>ახლა, ამ ახალი გარეგნობით, ჭაბუკი მზად იყო, იასმინისთვის სიყვარული აეხსნა.</p>
+        <p>— აბა, ახლა შენ იცი! — შესძახა ჯინმა. — დაე, ნახონ აგრაბაჰელებმა, როგორია პრინცი ალი!</p>
+        <p>ქუჩა სავსე იყო პრინცის სანახავად გამოსული ხალხით.</p>
+        <p>— საუცხოოა! — აღფრთოვანდა მბრძანებელი ალადინის დანახვისას, რომელიც სატახტო დარბაზში მფრინავი ხალიჩით შემოფრინდა.</p>
+        <p>— თქვენო ბრწყინვალებავ! მე შორეული ქვეყნიდან მოვედი თქვენი ქალიშვილის ხელის სათხოვნელად, — მიმართა ალადინმა მბრძანებელს და თავი მდაბლად დაუკრა.</p>
+        <p>— შესანიშნავია! — შვებით ამოისუნთქა იასმინის მამამ. იფიქრა, ბოლოს და ბოლოს გამოჩნდა პრინცი, რომელიც ჩემს ასულს გადაარჩენსო.</p>
+        <p>მოგვიანებით პრინცად ქცეულმა ალადინმა იასმინი მოინახულა.</p>
+        <p>— ჩვენ, მგონი, სადღაც უკვე შევხვედრივართ ერთმანეთს... მოედანზე ხომ არა? — ჰკითხა ქალიშვილმა.</p>
+        <p>— არა, ეს შეუძლებელია! იქ ხომ მხოლოდ მდაბიოები დადიან! — იუკადრისა ალადინმა.</p>
+        <p>— შენც ისეთივე მედიდური ხარ, როგორიც დანარჩენი პრინცები! — აღმოხდა იმედგაცრუებულ პრინცესას.</p>
+        <p>პრინც ალის ხმა ძალიან ჰგავდა იმ ვაჟის ხმას, რომელიც ბაზრის მოედანზე გაიცნო, მაგრამ იასმინს წყენამ მაშინვე გაუარა, როგორც კი ჭაბუკმა მფრინავი ხალიჩა აჩვენა.</p>
+        <p>— მენდობი? — ჰკითხა ალადინმა და ხალიჩაზე გვერდით მოისვა.</p>
+        <p>— რასაკვირველია! — უპასუხა ქალიშვილმა.</p>
+        <p>ხალიჩა აფრინდა, ქალაქ აგრაბაჰს გადაუქროლა და ღრუბლების თავზე მოექცა. ვარსკვლავებით მოჭედილი ცა ერთი ხელის გაწვდენაზეღა იყო და გრძნობდნენ, ჩიტებივით თავისუფლები იყვნენ...</p>
+      </div>
+    </section>
+
+    <!-- სექცია 2: უცხო სიტყვები -->
+    <section id="sityvebi" aria-labelledby="sityvebi-title">
+      <div class="section-header">
+        <h2 id="sityvebi-title">სიტყვების განმარტება</h2>
+      </div>
+      <div class="words-grid">
+        <div class="word-card">
+          <div class="word-title">გააბრიყვა</div>
+          <p class="word-desc">მოატყუა, ჭკუით აჯობა.</p>
+        </div>
+        <div class="word-card">
+          <div class="word-title">გადასხვაფერდა</div>
+          <p class="word-desc">სრულიად შეიცვალა გარეგნობა.</p>
+        </div>
+        <div class="word-card">
+          <div class="word-title">იუკადრისა</div>
+          <p class="word-desc">თაკილად მიიჩნია, არ ეკადრა.</p>
+        </div>
+        <div class="word-card">
+          <div class="word-title">მედიდური</div>
+          <p class="word-desc">ამაყი, ქედმაღალი.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- სექცია 3: დავალებები (სულ 8 სავარჯიშო) -->
+    <section id="davalebebi" aria-labelledby="davalebebi-title">
+      <div class="section-header">
+        <h2 id="davalebebi-title">დავალებები</h2>
+      </div>
+
+      <!-- დავალება 1 -->
+      <div class="task-card quiz-item" data-correct="1">
+        <div class="task-title">1. რა მოჰყვა ლამპრის ხეხვას?</div>
+        <div class="options">
+          <button type="button" class="option-btn" data-index="0">ლამპარი გატყდა და ორად გაიყო.</button>
+          <button type="button" class="option-btn" data-index="1">ამოიფრქვა კაშკაშა შუქი და კვამლი ცისფერ ლანდად გადაიქცა.</button>
+          <button type="button" class="option-btn" data-index="2">გამოქვაბულში ოქროს მონეტები ჩამოცვივდა.</button>
+        </div>
+        <div class="feedback" role="status"></div>
+      </div>
+
+      <!-- დავალება 2 -->
+      <div class="task-card quiz-item" data-correct="0">
+        <div class="task-title">2. ვინ ყოფილა ლამპრიდან ამოსული არსება?</div>
+        <div class="options">
+          <button type="button" class="option-btn" data-index="0">ლამპრის მკვიდრი ჯინი, რომელიც სამ ნატვრას ასრულებს.</button>
+          <button type="button" class="option-btn" data-index="1">გამოქვაბულის მცველი ჯადოქარი.</button>
+          <button type="button" class="option-btn" data-index="2">აგრაბაჰის მბრძანებლის მსახური.</button>
+        </div>
+        <div class="feedback" role="status"></div>
+      </div>
+
+      <!-- დავალება 3 -->
+      <div class="task-card quiz-item" data-correct="2">
+        <div class="task-title">3. რა იყო ალადინის ყველაზე დიდი სურვილი?</div>
+        <div class="options">
+          <button type="button" class="option-btn" data-index="0">ბევრი ოქროსა და სასახლის ქონა.</button>
+          <button type="button" class="option-btn" data-index="1">მფრინავი ხალიჩით მსოფლიოს შემოვლა.</button>
+          <button type="button" class="option-btn" data-index="2">პრინცად ქცევა და იასმინის ცოლად შერთვა.</button>
+        </div>
+        <div class="feedback" role="status"></div>
+      </div>
+
+      <!-- დავალება 4 -->
+      <div class="task-card quiz-item" data-correct="1">
+        <div class="task-title">4. როგორ შეხვდნენ ალადინის გამოჩენას აგრაბაჰელები?</div>
+        <div class="options">
+          <button type="button" class="option-btn" data-index="0">შეეშინდათ და სახლებში დაიმალნენ.</button>
+          <button type="button" class="option-btn" data-index="1">ქუჩაში გამოვიდნენ სანახავად, მბრძანებელი კი აღფრთოვანდა.</button>
+          <button type="button" class="option-btn" data-index="2">ყურადღება არ მიაქციეს.</button>
+        </div>
+        <div class="feedback" role="status"></div>
+      </div>
+
+      <!-- დავალება 5 -->
+      <div class="task-card quiz-item" data-correct="0">
+        <div class="task-title">5. რომელ ფრაზაში ჩანს, რომ ალადინი და იასმინი თავს შესანიშნავად გრძნობდნენ?</div>
+        <div class="options">
+          <button type="button" class="option-btn" data-index="0">„გრძნობდნენ, ჩიტებივით თავისუფლები იყვნენ...“</button>
+          <button type="button" class="option-btn" data-index="1">„შენც ისეთივე მედიდური ხარ, როგორიც დანარჩენი პრინცები!“</button>
+          <button type="button" class="option-btn" data-index="2">„არა, ეს შეუძლებელია! იქ ხომ მხოლოდ მდაბიოები დადიან!“</button>
+        </div>
+        <div class="feedback" role="status"></div>
+      </div>
+
+      <!-- დავალება 6: სიტყვების დაკავშირება -->
+      <div class="task-card">
+        <div class="task-title">6. შეუსაბამე სიტყვებს სწორი მნიშვნელობა</div>
+        <div class="match-row">
+          <span class="match-word">მედიდური</span>
+          <select id="match-1" aria-label="მედიდური - აირჩიე მნიშვნელობა">
+            <option value="">აირჩიე პასუხი...</option>
+            <option value="proud">ამაყი, ქედმაღალი</option>
+            <option value="changed">სრულიად შეიცვალა გარეგნობა</option>
+            <option value="tricked">მოატყუა, ჭკუით აჯობა</option>
+          </select>
+        </div>
+        <div class="match-row">
+          <span class="match-word">გადასხვაფერდა</span>
+          <select id="match-2" aria-label="გადასხვაფერდა - აირჩიე მნიშვნელობა">
+            <option value="">აირჩიე პასუხი...</option>
+            <option value="proud">ამაყი, ქედმაღალი</option>
+            <option value="changed">სრულიად შეიცვალა გარეგნობა</option>
+            <option value="tricked">მოატყუა, ჭკუით აჯობა</option>
+          </select>
+        </div>
+        <div class="match-row">
+          <span class="match-word">გააბრიყვა</span>
+          <select id="match-3" aria-label="გააბრიყვა - აირჩიე მნიშვნელობა">
+            <option value="">აირჩიე პასუხი...</option>
+            <option value="proud">ამაყი, ქედმაღალი</option>
+            <option value="changed">სრულიად შეიცვალა გარეგნობა</option>
+            <option value="tricked">მოატყუა, ჭკუით აჯობა</option>
+          </select>
+        </div>
+        <button type="button" class="btn-secondary" id="check-matches" style="margin-top: 8px;">შეამოწმე სიტყვები</button>
+        <div class="feedback" id="match-feedback" role="status"></div>
+      </div>
+
+      <!-- დავალება 7: ეპიზოდების ილუსტრაციების დალაგება და დასათაურება -->
+      <div class="task-card">
+        <div class="task-title">7. დაალაგე ეპიზოდების ილუსტრაციები თანმიმდევრობით და დაასათაურე</div>
+        <p class="task-subtitle">ისრების (▲ / ▼) ან გადათრევის დახმარებით დაალაგე ნახატები ამბის მიხედვით (1-დან 4-მდე) და თითოეულს შეურჩიე სათაური.</p>
+
+        <div class="episode-list" id="episode-list">
+          <!-- არეული საწყისი თანმიმდევრობა: 3, 1, 4, 2 -->
+          
+          <!-- ეპიზოდი 3: სასახლეში სტუმრობა -->
+          <div class="episode-card" draggable="true" data-ep="3">
+            <div class="episode-order-box">
+              <span class="episode-num">1</span>
+              <div class="move-btns">
+                <button type="button" class="move-btn move-up" aria-label="ზემოთ აწევა">▲</button>
+                <button type="button" class="move-btn move-down" aria-label="ქვემოთ ჩამოწევა">▼</button>
+              </div>
+            </div>
+            <div class="episode-art" role="img" aria-label="აგრაბაჰის სასახლის გუმბათები და მფრინავი ხალიჩა">
+              <svg viewBox="0 0 150 105" width="100%" height="100%">
+                <rect width="150" height="105" fill="#FEF3C7"/>
+                <!-- სასახლე -->
+                <rect x="45" y="48" width="60" height="45" fill="#FBBF24" stroke="#B45309" stroke-width="1.5"/>
+                <path d="M55 48 C55 28, 95 28, 95 48 Z" fill="#0F766E"/>
+                <line x1="75" y1="22" x2="75" y2="33" stroke="#B45309" stroke-width="2"/>
+                <rect x="67" y="68" width="16" height="25" rx="8" fill="#78350F"/>
+                <!-- მფრინავი ხალიჩა -->
+                <path d="M12 32 L42 26 L36 38 L8 42 Z" fill="#DC2626" stroke="#F59E0B" stroke-width="1.5"/>
+                <circle cx="24" cy="24" r="4" fill="#1E293B"/>
+              </svg>
+            </div>
+            <div class="episode-controls">
+              <label class="episode-label">შეურჩიე სათაური ამ ეპიზოდს:</label>
+              <select class="episode-title-select" aria-label="ეპიზოდის სათაურის არჩევა">
+                <option value="">აირჩიე სათაური...</option>
+                <option value="1">ჯინის გამოჩენა გამოქვაბულში</option>
+                <option value="2">ალადინის პრინცად გადაქცევა</option>
+                <option value="3">სტუმრობა აგრაბაჰის სასახლეში</option>
+                <option value="4">გაფრენა ვარსკვლავებიან ცაზე</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ეპიზოდი 1: ლამპარი და ჯინი -->
+          <div class="episode-card" draggable="true" data-ep="1">
+            <div class="episode-order-box">
+              <span class="episode-num">2</span>
+              <div class="move-btns">
+                <button type="button" class="move-btn move-up" aria-label="ზემოთ აწევა">▲</button>
+                <button type="button" class="move-btn move-down" aria-label="ქვემოთ ჩამოწევა">▼</button>
+              </div>
+            </div>
+            <div class="episode-art" role="img" aria-label="გამოქვაბული, ოქროს ლამპარი და ცისფერი კვამლი">
+              <svg viewBox="0 0 150 105" width="100%" height="100%">
+                <rect width="150" height="105" fill="#1E293B"/>
+                <!-- ცისფერი კვამლი/ჯინი -->
+                <path d="M92 65 C110 50, 95 25, 115 15 C128 22, 125 45, 105 65 Z" fill="#38BDF8" opacity="0.85"/>
+                <circle cx="115" cy="22" r="7" fill="#7DD3FC"/>
+                <!-- ოქროს ლამპარი -->
+                <path d="M35 78 C35 68, 55 65, 72 65 L95 58 L88 72 C88 82, 75 88, 60 88 C45 88, 35 84, 35 78 Z" fill="#F59E0B"/>
+                <ellipse cx="62" cy="90" rx="15" ry="3" fill="#D97706"/>
+              </svg>
+            </div>
+            <div class="episode-controls">
+              <label class="episode-label">შეურჩიე სათაური ამ ეპიზოდს:</label>
+              <select class="episode-title-select" aria-label="ეპიზოდის სათაურის არჩევა">
+                <option value="">აირჩიე სათაური...</option>
+                <option value="1">ჯინის გამოჩენა გამოქვაბულში</option>
+                <option value="2">ალადინის პრინცად გადაქცევა</option>
+                <option value="3">სტუმრობა აგრაბაჰის სასახლეში</option>
+                <option value="4">გაფრენა ვარსკვლავებიან ცაზე</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ეპიზოდი 4: ვარსკვლავებიანი ცა -->
+          <div class="episode-card" draggable="true" data-ep="4">
+            <div class="episode-order-box">
+              <span class="episode-num">3</span>
+              <div class="move-btns">
+                <button type="button" class="move-btn move-up" aria-label="ზემოთ აწევა">▲</button>
+                <button type="button" class="move-btn move-down" aria-label="ქვემოთ ჩამოწევა">▼</button>
+              </div>
+            </div>
+            <div class="episode-art" role="img" aria-label="ღამის ცა, მთვარე, ვარსკვლავები და მფრინავი ხალიჩა ორი ფიგურით">
+              <svg viewBox="0 0 150 105" width="100%" height="100%">
+                <rect width="150" height="105" fill="#0F172A"/>
+                <!-- მთვარე და ვარსკვლავები -->
+                <circle cx="122" cy="24" r="10" fill="#FDE047"/>
+                <circle cx="126" cy="21" r="9" fill="#0F172A"/>
+                <circle cx="30" cy="20" r="2" fill="#FEF08A"/>
+                <circle cx="65" cy="15" r="2.5" fill="#FEF08A"/>
+                <circle cx="95" cy="32" r="2" fill="#FEF08A"/>
+                <!-- ღრუბელი -->
+                <path d="M15 88 Q30 75 48 85 Q65 72 85 88 Z" fill="#334155"/>
+                <!-- ხალიჩა და ალადინი/იასმინი -->
+                <path d="M45 62 L105 56 L98 68 L38 72 Z" fill="#0D9488" stroke="#FBBF24" stroke-width="1.5"/>
+                <circle cx="64" cy="48" r="5" fill="#FDBA74"/>
+                <circle cx="80" cy="47" r="5" fill="#FDBA74"/>
+              </svg>
+            </div>
+            <div class="episode-controls">
+              <label class="episode-label">შეურჩიე სათაური ამ ეპიზოდს:</label>
+              <select class="episode-title-select" aria-label="ეპიზოდის სათაურის არჩევა">
+                <option value="">აირჩიე სათაური...</option>
+                <option value="1">ჯინის გამოჩენა გამოქვაბულში</option>
+                <option value="2">ალადინის პრინცად გადაქცევა</option>
+                <option value="3">სტუმრობა აგრაბაჰის სასახლეში</option>
+                <option value="4">გაფრენა ვარსკვლავებიან ცაზე</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ეპიზოდი 2: პრინცად გადაქცევა -->
+          <div class="episode-card" draggable="true" data-ep="2">
+            <div class="episode-order-box">
+              <span class="episode-num">4</span>
+              <div class="move-btns">
+                <button type="button" class="move-btn move-up" aria-label="ზემოთ აწევა">▲</button>
+                <button type="button" class="move-btn move-down" aria-label="ქვემოთ ჩამოწევა">▼</button>
+              </div>
+            </div>
+            <div class="episode-art" role="img" aria-label="პრინცის ჩალმა ფრთით და ჯადოსნური ვარსკვლავები">
+              <svg viewBox="0 0 150 105" width="100%" height="100%">
+                <rect width="150" height="105" fill="#CCFBF1"/>
+                <!-- ჯადოსნური რკალი -->
+                <circle cx="75" cy="54" r="36" fill="none" stroke="#0F766E" stroke-width="2" stroke-dasharray="5 5"/>
+                <!-- პრინცის სამოსი / ჩალმა -->
+                <path d="M52 52 C52 34, 98 34, 98 52 Z" fill="#FFFFFF" stroke="#0F766E" stroke-width="2"/>
+                <circle cx="75" cy="40" r="4" fill="#DC2626"/>
+                <path d="M75 36 Q82 22 88 26 Q83 34 75 36 Z" fill="#F59E0B"/>
+                <!-- სამოსი -->
+                <path d="M55 58 L95 58 L102 88 L48 88 Z" fill="#0F766E"/>
+                <path d="M70 58 L80 58 L75 88 Z" fill="#FBBF24"/>
+              </svg>
+            </div>
+            <div class="episode-controls">
+              <label class="episode-label">შეურჩიე სათაური ამ ეპიზოდს:</label>
+              <select class="episode-title-select" aria-label="ეპიზოდის სათაურის არჩევა">
+                <option value="">აირჩიე სათაური...</option>
+                <option value="1">ჯინის გამოჩენა გამოქვაბულში</option>
+                <option value="2">ალადინის პრინცად გადაქცევა</option>
+                <option value="3">სტუმრობა აგრაბაჰის სასახლეში</option>
+                <option value="4">გაფრენა ვარსკვლავებიან ცაზე</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary" id="check-episodes" style="margin-top: 16px;">შეამოწმე თანმიმდევრობა და სათაურები</button>
+        <div class="feedback" id="episode-feedback" role="status"></div>
+      </div>
+
+      <!-- დავალება 8: შემოქმედებითი დავალება -->
+      <div class="task-card">
+        <div class="task-title">8. ზღაპარში ნახსენებია ჯადოსნური ნივთები. კიდევ რომელ ჯადოსნურ ნივთზე გსმენია?</div>
+        <form class="magic-form" id="magic-form" novalidate>
+          <input type="text" class="magic-input" id="magic-input" placeholder="მაგ: უჩინმაჩინის ქუდი, ჯადოსნური სარკე..." aria-label="ჯადოსნური ნივთის დასახელება">
+          <button type="submit" class="btn-primary">დამატება</button>
+        </form>
+        <div class="feedback" id="magic-feedback" role="status"></div>
+        <div class="magic-tags" id="magic-list">
+          <span class="magic-tag">ჯადოსნური ლამპარი</span>
+          <span class="magic-tag">მფრინავი ხალიჩა</span>
+        </div>
+      </div>
+
+      <div class="quiz-footer">
+        <div class="score-text" id="score-display">შესრულებული ტესტი: 0 / 5</div>
+        <button type="button" class="btn-secondary" id="reset-quiz">ტესტის თავიდან ცდა</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // შრიფტის ზომა
+    let currentFontSize = 19;
+    const root = document.documentElement;
+    document.getElementById('font-increase').addEventListener('click', () => {
+      if (currentFontSize < 25) {
+        currentFontSize += 2;
+        root.style.setProperty('--font-size', currentFontSize + 'px');
+      }
+    });
+    document.getElementById('font-decrease').addEventListener('click', () => {
+      if (currentFontSize > 15) {
+        currentFontSize -= 2;
+        root.style.setProperty('--font-size', currentFontSize + 'px');
+      }
+    });
+
+    // 5 ტესტური კითხვა
+    const explanations = [
+      {
+        correct: "ყოჩაღ! ლამპარი აძაგძაგდა, ამოიფრქვა შუქი და კვამლისგან ჯინი გაჩნდა.",
+        hint: "მინიშნება: გადახედე ზღაპრის პირველ აბზაცს."
+      },
+      {
+        correct: "სწორია! ის ლამპრის მკვიდრი ჯინი იყო და სამი ნატვრის ასრულება შეეძლო.",
+        hint: "მინიშნება: წაიკითხე ჯინის პასუხი, როცა ალადინმა ჰკითხა — შენ ვინ ხარო."
+      },
+      {
+        correct: "ზუსტად ასეა! ალადინს პრინცად ქცევა და იასმინის ცოლად შერთვა სურდა.",
+        hint: "მინიშნება: გაიხსენე, რა უთხრა ალადინმა ჯინს თავშესაფართან მისვლისას."
+      },
+      {
+        correct: "სწორია! ქუჩა სავსე იყო ხალხით, მბრძანებელი კი აღფრთოვანებული დარჩა.",
+        hint: "მინიშნება: ნახე ის ადგილი, სადაც პრინცი ალი სატახტო დარბაზში შეფრინდა."
+      },
+      {
+        correct: "ყოჩაღ! ეს ფრაზა ზღაპრის ბოლო წინადადებაში წერია.",
+        hint: "მინიშნება: წაიკითხე ზღაპრის სულ ბოლო აბზაცი."
+      }
+    ];
+
+    let score = 0;
+    const quizItems = document.querySelectorAll('.quiz-item');
+    const scoreDisplay = document.getElementById('score-display');
+
+    quizItems.forEach((item, qIndex) => {
+      const correctIndex = parseInt(item.dataset.correct, 10);
+      const buttons = item.querySelectorAll('.option-btn');
+      const feedback = item.querySelector('.feedback');
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const chosen = parseInt(btn.dataset.index, 10);
+          if (chosen === correctIndex) {
+            if (!item.dataset.solved) {
+              score++;
+              item.dataset.solved = "true";
+              scoreDisplay.textContent = `შესრულებული ტესტი: ${score} / 5`;
+            }
+            buttons.forEach(b => { b.classList.remove('wrong'); b.disabled = true; });
+            btn.classList.add('correct');
+            feedback.textContent = explanations[qIndex].correct;
+            feedback.className = 'feedback show success';
+          } else {
+            btn.classList.add('wrong');
+            feedback.textContent = explanations[qIndex].hint;
+            feedback.className = 'feedback show hint';
+          }
+        });
+      });
+    });
+
+    // დავალება 6: სიტყვების შემოწმება
+    document.getElementById('check-matches').addEventListener('click', () => {
+      const m1 = document.getElementById('match-1').value;
+      const m2 = document.getElementById('match-2').value;
+      const m3 = document.getElementById('match-3').value;
+      const fb = document.getElementById('match-feedback');
+
+      if (!m1 || !m2 || !m3) {
+        fb.textContent = "გთხოვ, სამივე სიტყვას აურჩიე მნიშვნელობა.";
+        fb.className = "feedback show hint";
+        return;
+      }
+
+      if (m1 === 'proud' && m2 === 'changed' && m3 === 'tricked') {
+        fb.textContent = "შესანიშნავია! სამივე სიტყვის მნიშვნელობა სწორად შეუსაბამე.";
+        fb.className = "feedback show success";
+      } else {
+        fb.textContent = "ერთი ან მეტი პასუხი არასწორია. შეამოწმე „სიტყვების განმარტების“ ბლოკი ზემოთ.";
+        fb.className = "feedback show error";
+      }
+    });
+
+    // დავალება 7: ეპიზოდების დალაგება და დასათაურება
+    const episodeList = document.getElementById('episode-list');
+
+    function updateEpisodeNumbers() {
+      const cards = episodeList.querySelectorAll('.episode-card');
+      cards.forEach((card, idx) => {
+        card.querySelector('.episode-num').textContent = idx + 1;
+        card.querySelector('.move-up').disabled = idx === 0;
+        card.querySelector('.move-down').disabled = idx === cards.length - 1;
+        card.classList.remove('correct-card', 'wrong-card');
+      });
+    }
+
+    episodeList.addEventListener('click', (e) => {
+      const upBtn = e.target.closest('.move-up');
+      const downBtn = e.target.closest('.move-down');
+      if (upBtn) {
+        const card = upBtn.closest('.episode-card');
+        if (card.previousElementSibling) {
+          episodeList.insertBefore(card, card.previousElementSibling);
+          updateEpisodeNumbers();
+        }
+      } else if (downBtn) {
+        const card = downBtn.closest('.episode-card');
+        if (card.nextElementSibling) {
+          episodeList.insertBefore(card.nextElementSibling, card);
+          updateEpisodeNumbers();
+        }
+      }
+    });
+
+    // გადათრევით (Drag & Drop) დალაგება
+    let draggedCard = null;
+    episodeList.addEventListener('dragstart', (e) => {
+      const card = e.target.closest('.episode-card');
+      if (card) {
+        draggedCard = card;
+        e.dataTransfer.effectAllowed = 'move';
+      }
+    });
+    episodeList.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      const targetCard = e.target.closest('.episode-card');
+      if (targetCard && targetCard !== draggedCard) {
+        targetCard.classList.add('drag-over');
+      }
+    });
+    episodeList.addEventListener('dragleave', (e) => {
+      const targetCard = e.target.closest('.episode-card');
+      if (targetCard) targetCard.classList.remove('drag-over');
+    });
+    episodeList.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const targetCard = e.target.closest('.episode-card');
+      if (targetCard && draggedCard && targetCard !== draggedCard) {
+        targetCard.classList.remove('drag-over');
+        const allCards = Array.from(episodeList.children);
+        const draggedIdx = allCards.indexOf(draggedCard);
+        const targetIdx = allCards.indexOf(targetCard);
+        if (draggedIdx < targetIdx) {
+          episodeList.insertBefore(draggedCard, targetCard.nextSibling);
+        } else {
+          episodeList.insertBefore(draggedCard, targetCard);
+        }
+        updateEpisodeNumbers();
+      }
+    });
+
+    updateEpisodeNumbers();
+
+    // შემოწმება: ეპიზოდების თანმიმდევრობა და სათაურები
+    document.getElementById('check-episodes').addEventListener('click', () => {
+      const cards = Array.from(episodeList.querySelectorAll('.episode-card'));
+      const fb = document.getElementById('episode-feedback');
+      let allTitlesSelected = true;
+      let orderCorrectCount = 0;
+      let titlesCorrectCount = 0;
+
+      cards.forEach((card, index) => {
+        const expectedEp = String(index + 1);
+        const actualEp = card.dataset.ep;
+        const selectedTitle = card.querySelector('.episode-title-select').value;
+
+        if (!selectedTitle) allTitlesSelected = false;
+
+        const isOrderOk = actualEp === expectedEp;
+        const isTitleOk = selectedTitle === actualEp;
+
+        if (isOrderOk) orderCorrectCount++;
+        if (isTitleOk) titlesCorrectCount++;
+
+        if (isOrderOk && isTitleOk) {
+          card.classList.add('correct-card');
+          card.classList.remove('wrong-card');
+        } else {
+          card.classList.add('wrong-card');
+          card.classList.remove('correct-card');
+        }
+      });
+
+      if (!allTitlesSelected) {
+        fb.textContent = "გთხოვ, ოთხივე ეპიზოდს შეურჩიე სათაური და შემდეგ დააჭირე შემოწმებას.";
+        fb.className = "feedback show hint";
+        return;
+      }
+
+      if (orderCorrectCount === 4 && titlesCorrectCount === 4) {
+        fb.textContent = "ბრავო! ოთხივე ეპიზოდი სწორი თანმიმდევრობით დაალაგე და სათაურებიც ზუსტად შეურჩიე!";
+        fb.className = "feedback show success";
+      } else {
+        fb.textContent = `სწორ ადგილზე დგას ${orderCorrectCount}/4 ეპიზოდი, სწორი სათაური აქვს ${titlesCorrectCount}/4 ეპიზოდს. წითლად მონიშნული ბარათები კიდევ ერთხელ გადაამოწმე!`;
+        fb.className = "feedback show error";
+      }
+    });
+
+    // დავალება 8: ჯადოსნური ნივთის დამატება
+    document.getElementById('magic-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = document.getElementById('magic-input');
+      const fb = document.getElementById('magic-feedback');
+      const val = input.value.trim();
+
+      if (val.length < 3) {
+        fb.textContent = "გთხოვ, ჩაწერე ჯადოსნური ნივთის სახელი (მინიმუმ 3 ასო).";
+        fb.className = "feedback show error";
+        return;
+      }
+
+      const tag = document.createElement('span');
+      tag.className = 'magic-tag';
+      tag.textContent = val;
+      document.getElementById('magic-list').appendChild(tag);
+
+      input.value = '';
+      fb.textContent = "დამატებულია! შესანიშნავი მაგალითია.";
+      fb.className = "feedback show success";
+    });
+
+    // ტესტის განულება
+    document.getElementById('reset-quiz').addEventListener('click', () => {
+      score = 0;
+      scoreDisplay.textContent = "შესრულებული ტესტი: 0 / 5";
+      quizItems.forEach(item => {
+        delete item.dataset.solved;
+        item.querySelectorAll('.option-btn').forEach(b => {
+          b.disabled = false;
+          b.classList.remove('correct', 'wrong');
+        });
+        const fb = item.querySelector('.feedback');
+        fb.className = 'feedback';
+        fb.textContent = '';
+      });
+    });
+  </script>
+</body>
+</html>
