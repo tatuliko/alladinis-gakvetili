@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ალადინი — აღმოსავლური ზღაპარი</title>
+  <title>ალადინი — ჯინის გათავისუფლება</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700&family=Noto+Serif+Georgian:wght@400;600&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@
     }
 
     .nav-container {
-      max-width: 840px;
+      max-width: 860px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -85,7 +85,7 @@
       outline: 2px solid var(--accent);
     }
 
-    main { max-width: 840px; margin: 0 auto; padding: 24px 20px; }
+    main { max-width: 860px; margin: 0 auto; padding: 24px 20px; }
 
     .hero {
       text-align: center;
@@ -200,6 +200,7 @@
       padding: 16px;
       background-color: var(--bg);
       border-radius: 16px;
+      border: 1px solid var(--border);
     }
 
     .words-grid {
@@ -221,11 +222,11 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       background-color: var(--bg);
     }
-    .task-title { font-weight: 700; font-size: 1.08rem; margin-bottom: 6px; }
-    .task-subtitle { font-size: 0.94rem; color: var(--muted); margin-bottom: 14px; }
+    .task-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 6px; }
+    .task-subtitle { font-size: 0.95rem; color: var(--muted); margin-bottom: 14px; }
     .options { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
 
     .option-btn {
@@ -298,36 +299,45 @@
     .episode-list {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-top: 12px;
+      gap: 18px;
+      margin-top: 14px;
     }
 
     .episode-card {
       background-color: var(--card);
       border: 2px solid var(--border);
-      border-radius: 14px;
-      padding: 14px;
+      border-radius: 16px;
+      padding: 16px;
       display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 14px;
       cursor: grab;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
     .episode-card:active { cursor: grabbing; }
     .episode-card.drag-over { border-color: var(--accent); background-color: var(--accent-light); }
     .episode-card.correct-card { border-color: var(--success-text); background-color: #F0FDF4; }
     .episode-card.wrong-card { border-color: var(--error-text); }
 
-    .episode-order-box {
+    .episode-top-bar {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      gap: 4px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    .episode-badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--accent);
     }
 
     .episode-num {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background-color: var(--accent);
       color: #FFFFFF;
@@ -335,66 +345,74 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
 
     .move-btns {
       display: flex;
-      flex-direction: column;
-      gap: 4px;
+      gap: 8px;
     }
 
     .move-btn {
       background-color: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 6px;
-      width: 30px;
-      height: 26px;
+      border-radius: 8px;
+      padding: 6px 12px;
       cursor: pointer;
-      font-size: 0.8rem;
+      font-size: 0.88rem;
+      font-weight: 700;
       color: var(--text);
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 4px;
     }
     .move-btn:hover:not(:disabled), .move-btn:focus-visible:not(:disabled) {
       background-color: var(--accent-light);
       border-color: var(--accent);
+      color: var(--accent);
       outline: none;
     }
     .move-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
+    .episode-content-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
     .episode-art {
-      width: 150px;
-      height: 105px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
+      width: 100%;
+      border-radius: 12px;
+      border: 2px solid var(--border);
       overflow: hidden;
-      flex-shrink: 0;
       background-color: #FFFDF9;
+    }
+    .episode-art svg {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     .episode-controls {
-      flex: 1;
-      min-width: 220px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .episode-label {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      color: var(--muted);
+      color: var(--text);
     }
 
     .episode-controls select, .episode-custom-input {
       width: 100%;
-      padding: 9px 12px;
-      border-radius: 8px;
+      padding: 10px 12px;
+      border-radius: 10px;
       border: 2px solid var(--border);
       font-family: inherit;
-      font-size: 0.94rem;
+      font-size: 0.95rem;
       background-color: var(--card);
     }
 
@@ -449,11 +467,11 @@
     }
     .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    @media (max-width: 600px) {
+    @media (max-width: 720px) {
       .hero h1 { font-size: 1.8rem; }
       section { padding: 20px 16px; }
       select { width: 100%; }
-      .episode-art { width: 100%; height: 125px; }
+      .episode-content-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -478,9 +496,9 @@
   <main id="top">
     <div class="hero">
       <span class="badge">აღმოსავლური ზღაპარი • IV კლასი</span>
-      <h1>ალადინი</h1>
-      <p>წაიკითხე ჯინის გათავისუფლების ამბავი, ისწავლე ახალი სიტყვები, დაალაგე ეპიზოდების ილუსტრაციები და უპასუხე კითხვებს.</p>
-      <a href="#zgapari" class="btn-primary">დაიწყე კითხვა</a>
+      <h1>ალადინი — ჯინის გათავისუფლება</h1>
+      <p>წაიკითხე ზღაპარი, დაალაგე ეპიზოდები სწორი თანმიმდევრობით და უპასუხე კითხვებს.</p>
+      <a href="#zgapari" class="btn-primary">დაიწყე აქტივობა</a>
     </div>
 
     <!-- სექცია 1: ზღაპარი -->
@@ -494,414 +512,565 @@
       </div>
 
       <div class="story-intro">
-        ვინ არ იცნობს ალადინს — ღარიბ, გულკეთილ ბიჭს, რომელმაც მეფის ასულ იასმინის გული მოიგო და ორმოცი ყაჩაღი გააბრიყვა. ახლა კი ჯინის გათავისუფლების ამბავს წაიკითხავ.
+        ვინ არ იცნობს ალადინს — ღარიბ, გულკეთილ ბიჭს. აქ წაიკითხავ ამბავს, თუ როგორ გაათავისუფლა მან ჯადოსნური ჯინი ლამპრიდან.
       </div>
 
+      <!-- მთავარი ილუსტრაცია: ჯადოსნური ლამპარი და ჯინის გამოჩენა -->
       <div class="illustration">
-        <svg width="200" height="110" viewBox="0 0 200 110" role="img" aria-label="ჯადოსნური ოქროს ლამპარი და ცისფერი კვამლი">
-          <path d="M135 55 C145 35, 125 25, 140 12" fill="none" stroke="#0F766E" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 4"/>
-          <path d="M50 75 C50 60, 80 55, 110 55 L145 45 L135 65 C135 80, 115 90, 90 90 C65 90, 50 85, 50 75 Z" fill="#F59E0B" stroke="#B45309" stroke-width="2.5"/>
-          <path d="M50 72 C32 72, 32 55, 52 60" fill="none" stroke="#B45309" stroke-width="3" stroke-linecap="round"/>
-          <ellipse cx="90" cy="93" rx="22" ry="4" fill="#D97706"/>
-          <circle cx="92" cy="51" r="5" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
+        <svg viewBox="0 0 680 280" width="100%" style="max-width: 640px; height: auto;" role="img" aria-label="ჯადოსნური ოქროს ლამპარი და ცისფერი კვამლით ამომავალი ჯინი">
+          <defs>
+            <linearGradient id="skyHero" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1E1B4B"/>
+              <stop offset="100%" stop-color="#312E81"/>
+            </linearGradient>
+            <linearGradient id="goldLamp" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FDE047"/>
+              <stop offset="50%" stop-color="#F59E0B"/>
+              <stop offset="100%" stop-color="#B45309"/>
+            </linearGradient>
+            <linearGradient id="genieGrad" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#38BDF8"/>
+              <stop offset="100%" stop-color="#0284C7"/>
+            </linearGradient>
+          </defs>
+          <rect width="680" height="280" rx="14" fill="url(#skyHero)"/>
+          <!-- ვარსკვლავები -->
+          <circle cx="80" cy="45" r="2.5" fill="#FEF08A"/>
+          <circle cx="150" cy="80" r="2" fill="#FFFFFF"/>
+          <circle cx="580" cy="50" r="3" fill="#FEF08A"/>
+          <circle cx="520" cy="110" r="2" fill="#FFFFFF"/>
+          <circle cx="240" cy="35" r="2.5" fill="#FDE047"/>
+          <circle cx="620" cy="140" r="2.5" fill="#FDE047"/>
+          <!-- ქვის სადგამი -->
+          <rect x="130" y="235" width="200" height="45" rx="6" fill="#475569"/>
+          <rect x="145" y="225" width="170" height="14" rx="4" fill="#64748B"/>
+          <!-- ოქროს ლამპარი -->
+          <ellipse cx="230" cy="222" rx="34" ry="7" fill="#B45309"/>
+          <path d="M190 198 C190 218, 270 218, 270 198 C270 183, 250 176, 230 176 C210 176, 190 183, 190 198 Z" fill="url(#goldLamp)"/>
+          <!-- ლამპრის ცხვირი -->
+          <path d="M268 194 Q305 186 318 164 Q300 178 265 186 Z" fill="url(#goldLamp)"/>
+          <!-- ლამპრის სახელური -->
+          <path d="M192 190 C168 175, 168 212, 194 206" fill="none" stroke="#F59E0B" stroke-width="6" stroke-linecap="round"/>
+          <!-- სახურავი -->
+          <ellipse cx="230" cy="176" rx="18" ry="5" fill="#FDE047"/>
+          <circle cx="230" cy="168" r="5" fill="#F59E0B"/>
+          <!-- ჯადოსნური კვამლი ლამპრიდან ჯინამდე -->
+          <path d="M318 164 C355 150, 345 195, 395 185 C430 178, 435 150, 445 135" fill="none" stroke="#7DD3FC" stroke-width="14" stroke-linecap="round" opacity="0.75"/>
+          <path d="M318 164 C355 150, 345 195, 395 185 C430 178, 435 150, 445 135" fill="none" stroke="#E0F2FE" stroke-width="5" stroke-linecap="round"/>
+          <!-- ჯინი -->
+          <path d="M425 145 Q445 115 475 145 L485 95 Q450 85 415 95 Z" fill="url(#genieGrad)"/>
+          <!-- ჯინის მხრები და მკერდი -->
+          <ellipse cx="450" cy="95" rx="38" ry="24" fill="url(#genieGrad)"/>
+          <!-- ოქროს სამაჯურები და ქამარი -->
+          <rect x="428" y="128" width="44" height="10" rx="4" fill="#F59E0B"/>
+          <!-- ჯინის ხელები -->
+          <path d="M415 90 Q385 75 375 95" fill="none" stroke="#38BDF8" stroke-width="14" stroke-linecap="round"/>
+          <path d="M485 90 Q515 75 525 95" fill="none" stroke="#38BDF8" stroke-width="14" stroke-linecap="round"/>
+          <!-- ჯინის თავი -->
+          <circle cx="450" cy="56" r="20" fill="#38BDF8"/>
+          <!-- ჩალმა -->
+          <path d="M430 48 Q450 26 470 48 Q450 54 430 48 Z" fill="#F8FAFC"/>
+          <circle cx="450" cy="38" r="4" fill="#EF4444"/>
+          <!-- ღიმილი და თვალები -->
+          <circle cx="443" cy="54" r="2.5" fill="#0F172A"/>
+          <circle cx="457" cy="54" r="2.5" fill="#0F172A"/>
+          <path d="M442 63 Q450 71 458 63" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+          <!-- ჯადოსნური ნაპერწკლები -->
+          <polygon points="355,115 358,123 366,126 358,129 355,137 352,129 344,126 352,123" fill="#FDE047"/>
+          <polygon points="510,50 512,56 518,58 512,60 510,66 508,60 502,58 508,56" fill="#FDE047"/>
         </svg>
       </div>
 
-      <div class="story-body">
-        <p>გამოქვაბულში ჩამწყვდეულმა ალადინმა დამტვერილ ლამპარს ხეხვა დაუწყო, რათა ზედ ამოტვიფრული წარწერა წაეკითხა. უცებ ლამპარი აძაგძაგდა, იქიდან კაშკაშა შუქი ამოიფრქვა, გამოქვაბული კვამლის ღრუბელმა დაფარა, რომელიც ჯერ დაბზრიალდა და მერე ცისფერ ლანდად გადაიქცა.</p>
-        <p>— უჰ, რა საშინელებაა ათასი წელი ასეთ სივიწროვეში ყოფნა! — წარმოთქვა ლანდმა, როცა კვამლი გაიფანტა.</p>
-        <p>— შენ ვინ ხარ? — ჰკითხა ალადინმა.</p>
-        <p>— მე ამ ლამპრის ერთადერთი და უძლიერესი მკვიდრი ვარ. შენ კი ჩემი ბედნიერი ბატონი. ჩაიფიქრე სამი ნატვრა, — არც მეტი, არც ნაკლები, — და შეგისრულებ.</p>
-        <p>— თუ ასეთი ძლევამოსილი ხარ, როგორც თავი მოგაქვს, იქნებ აქედან ამომიყვანო, — მიმართა ყმაწვილმა ნიშნის მოგებით.</p>
-        <p>... და მაშინვე ყველა მიწის ზემოთ აღმოჩნდა. მალე ხალიჩაზე მოკალათებული მეგობრები აგრაბაჰისკენ მიქროდნენ.</p>
-        <p>— ჩემს სამ სურვილთან დაკავშირებით რას ფიქრობ? — დაინტერესდა ალადინი.</p>
-        <p>— ჰმ, ერთი ხომ უკვე შეგისრულე! — უპასუხა ჯინმა.</p>
-        <p>— ასეც არ არის! — ეშმაკურად ჩაიცინა ყმაწვილმა. — ეს ჩემი სურვილი არ იყო. შენ ეს თავად გინდოდა და იმიტომ გააკეთე. იცი, ყველაზე ძალიან რა მინდა? — უთხრა, როცა თავშესაფრამდე მიაღწიეს, — პრინცი მინდა გავხდე და ცოლად იასმინი შევირთო.</p>
-        <p>იმავე წამს სულმა გადიდება დაიწყო. გადიდდა, გადიდდა... და ყმაწვილის გარშემო ყველაფერი დაბზრიალდა. ალადინი თავით ფეხებამდე გადასხვაფერდა.</p>
-        <p>— დიდებულად გამოიყურები! — მიმართა ჯინმა ალადინს, როცა ძვირფას სამოსში გამოაწყო. — ნამდვილ პრინცს ჰგავხარ.</p>
-        <p>ახლა, ამ ახალი გარეგნობით, ჭაბუკი მზად იყო, იასმინისთვის სიყვარული აეხსნა.</p>
-        <p>— აბა, ახლა შენ იცი! — შესძახა ჯინმა. — დაე, ნახონ აგრაბაჰელებმა, როგორია პრინცი ალი!</p>
-        <p>ქუჩა სავსე იყო პრინცის სანახავად გამოსული ხალხით.</p>
-        <p>— საუცხოოა! — აღფრთოვანდა მბრძანებელი ალადინის დანახვისას, რომელიც სატახტო დარბაზში მფრინავი ხალიჩით შემოფრინდა.</p>
-        <p>— თქვენო ბრწყინვალებავ! მე შორეული ქვეყნიდან მოვედი თქვენი ქალიშვილის ხელის სათხოვნელად, — მიმართა ალადინმა მბრძანებელს და თავი მდაბლად დაუკრა.</p>
-        <p>— შესანიშნავია! — შვებით ამოისუნთქა იასმინის მამამ. იფიქრა, ბოლოს და ბოლოს გამოჩნდა პრინცი, რომელიც ჩემს ასულს გადაარჩენსო.</p>
-        <p>მოგვიანებით პრინცად ქცეულმა ალადინმა იასმინი მოინახულა.</p>
-        <p>— ჩვენ, მგონი, სადღაც უკვე შევხვედრივართ ერთმანეთს... მოედანზე ხომ არა? — ჰკითხა ქალიშვილმა.</p>
-        <p>— არა, ეს შეუძლებელია! იქ ხომ მხოლოდ მდაბიოები დადიან! — იუკადრისა ალადინმა.</p>
-        <p>— შენც ისეთივე მედიდური ხარ, როგორიც დანარჩენი პრინცები! — აღმოხდა იმედგაცრუებულ პრინცესას.</p>
-        <p>პრინც ალის ხმა ძალიან ჰგავდა იმ ვაჟის ხმას, რომელიც ბაზრის მოედანზე გაიცნო, მაგრამ იასმინს წყენამ მაშინვე გაუარა, როგორც კი ჭაბუკმა მფრინავი ხალიჩა აჩვენა.</p>
-        <p>— მენდობი? — ჰკითხა ალადინმა და ხალიჩაზე გვერდით მოისვა.</p>
-        <p>— რასაკვირველია! — უპასუხა ქალიშვილმა.</p>
-        <p>ხალიჩა აფრინდა, ქალაქ აგრაბაჰს გადაუქროლა და ღრუბლების თავზე მოექცა. ვარსკვლავებით მოჭედილი ცა ერთი ხელის გაწვდენაზეღა იყო და გრძნობდნენ, ჩიტებივით თავისუფლები იყვნენ...</p>
+      <div class="story-body" id="story-content">
+        <p>დიდი ხნის წინ შორეულ აღმოსავლეთში ცხოვრობდა ღარიბი, მაგრამ გულკეთილი ბიჭი, სახელად ალადინი. ერთ დღეს მან ბნელ გამოქვაბულში უცნაური, ძველი სპილენძის ლამპარი იპოვა. ლამპარი მტვრით იყო დაფარული. ალადინმა მისი გაწმენდა მოინდომა და სახელოთი ფრთხილად გახეხა.</p>
+        <p>უცებ გამოქვაბული ცისფერი კვამლით აივსო, მიწა შეირყა და ლამპრიდან უზარმაზარი, მხიარული ჯინი ამოვიდა. ჯინი ათასი წელი იყო გამომწყვდეული ვიწრო ლამპარში და თავისუფლებას ნატრობდა.</p>
+        <p>— მადლობა, კეთილო ჭაბუკო, რომ ლამპრიდან გამომიხსენი! — შესძახა ჯინმა ომახიანი ხმით. — ამიერიდან მე შენი ერთგული მეგობარი ვარ და სამ სურვილს შეგისრულებ!</p>
+        <p>ალადინმა პირველ სურვილად პრინცად ქცევა ჩაიფიქრა, რათა სულთნის სასახლეში მისულიყო და მშვენიერი პრინცესა იასმინი გაეცნო. ჯინმა ხელი აიქნია და ღარიბი ბიჭი წამში დიდებულ პრინცად აქცია, მფრინავი ხალიჩაც უბოძა და სასახლისკენ გააცილა.</p>
+        <p>ბევრი თავგადასავლის შემდეგ ბოროტმა ჯადოქარმა ლამპრის ხელში ჩაგდება სცადა, მაგრამ ალადინმა გონიერებითა და სიმამაცით დაამარცხა იგი. ბოლოს კი, როცა ალადინს მესამე, უკანასკნელი სურვილის ჩაფიქრების დრო დაუდგა, მან სიმდიდრის ნაცვლად ჯინის სამუდამოდ გათავისუფლება ისურვა. ასე იქცა ალადინის სიკეთე ყველაზე დიდ ჯადოქრობად.</p>
       </div>
     </section>
 
-    <!-- სექცია 2: უცხო სიტყვები -->
+    <!-- სექცია 2: უცხო სიტყვების ლექსიკონი -->
     <section id="sityvebi" aria-labelledby="sityvebi-title">
       <div class="section-header">
-        <h2 id="sityvebi-title">სიტყვების განმარტება</h2>
+        <h2 id="sityvebi-title">ახალი და საინტერესო სიტყვები</h2>
       </div>
       <div class="words-grid">
         <div class="word-card">
-          <div class="word-title">გააბრიყვა</div>
-          <p class="word-desc">მოატყუა, ჭკუით აჯობა.</p>
+          <div class="word-title">ლამპარი</div>
+          <div class="word-desc">ძველებური პატარა ჭურჭელი, რომელშიც ზეთს ასხამდნენ და სინათლისთვის ანთებდნენ.</div>
         </div>
         <div class="word-card">
-          <div class="word-title">გადასხვაფერდა</div>
-          <p class="word-desc">სრულიად შეიცვალა გარეგნობა.</p>
+          <div class="word-title">ჯინი</div>
+          <div class="word-desc">აღმოსავლური ზღაპრების ჯადოსნური არსება, რომელსაც სურვილების ასრულება შეუძლია.</div>
         </div>
         <div class="word-card">
-          <div class="word-title">იუკადრისა</div>
-          <p class="word-desc">თაკილად მიიჩნია, არ ეკადრა.</p>
+          <div class="word-title">ომახიანი</div>
+          <div class="word-desc">ხმამაღალი, მტკიცე და მხნე ხმა.</div>
         </div>
         <div class="word-card">
-          <div class="word-title">მედიდური</div>
-          <p class="word-desc">ამაყი, ქედმაღალი.</p>
+          <div class="word-title">სულთანი</div>
+          <div class="word-desc">აღმოსავლეთის ქვეყნების მმართველი, მეფე.</div>
         </div>
       </div>
     </section>
 
-    <!-- სექცია 3: დავალებები (სულ 8 სავარჯიშო) -->
+    <!-- სექცია 3: ინტერაქტიული დავალებები -->
     <section id="davalebebi" aria-labelledby="davalebebi-title">
       <div class="section-header">
-        <h2 id="davalebebi-title">დავალებები</h2>
+        <h2 id="davalebebi-title">შეამოწმე, როგორ გაიგე ზღაპარი</h2>
       </div>
 
       <!-- დავალება 1 -->
-      <div class="task-card quiz-item" data-correct="1">
-        <div class="task-title">1. რა მოჰყვა ლამპრის ხეხვას?</div>
+      <div class="task-card" data-quiz="1">
+        <div class="task-title">1. სად იპოვა ალადინმა ძველი სპილენძის ლამპარი?</div>
         <div class="options">
-          <button type="button" class="option-btn" data-index="0">ლამპარი გატყდა და ორად გაიყო.</button>
-          <button type="button" class="option-btn" data-index="1">ამოიფრქვა კაშკაშა შუქი და კვამლი ცისფერ ლანდად გადაიქცა.</button>
-          <button type="button" class="option-btn" data-index="2">გამოქვაბულში ოქროს მონეტები ჩამოცვივდა.</button>
+          <button type="button" class="option-btn" data-correct="false">ა) სულთნის სასახლის ბაღში</button>
+          <button type="button" class="option-btn" data-correct="true">ბ) ბნელ გამოქვაბულში</button>
+          <button type="button" class="option-btn" data-correct="false">გ) ქალაქის ხმაურიან ბაზარში</button>
         </div>
-        <div class="feedback" role="status"></div>
+        <div class="feedback" role="status" aria-live="polite"></div>
       </div>
 
       <!-- დავალება 2 -->
-      <div class="task-card quiz-item" data-correct="0">
-        <div class="task-title">2. ვინ ყოფილა ლამპრიდან ამოსული არსება?</div>
+      <div class="task-card" data-quiz="2">
+        <div class="task-title">2. რატომ გახეხა ალადინმა ლამპარი სახელოთი?</div>
         <div class="options">
-          <button type="button" class="option-btn" data-index="0">ლამპრის მკვიდრი ჯინი, რომელიც სამ ნატვრას ასრულებს.</button>
-          <button type="button" class="option-btn" data-index="1">გამოქვაბულის მცველი ჯადოქარი.</button>
-          <button type="button" class="option-btn" data-index="2">აგრაბაჰის მბრძანებლის მსახური.</button>
+          <button type="button" class="option-btn" data-correct="false">ა) იცოდა, რომ შიგნით ჯინი იჯდა</button>
+          <button type="button" class="option-btn" data-correct="true">ბ) ლამპარი მტვრიანი იყო და გაწმენდა მოინდომა</button>
+          <button type="button" class="option-btn" data-correct="false">გ) ჯადოქარმა უბრძანა ასე მოქცეულიყო</button>
         </div>
-        <div class="feedback" role="status"></div>
+        <div class="feedback" role="status" aria-live="polite"></div>
       </div>
 
       <!-- დავალება 3 -->
-      <div class="task-card quiz-item" data-correct="2">
-        <div class="task-title">3. რა იყო ალადინის ყველაზე დიდი სურვილი?</div>
+      <div class="task-card" data-quiz="3">
+        <div class="task-title">3. რა ჩაიფიქრა ალადინმა პირველ სურვილად?</div>
         <div class="options">
-          <button type="button" class="option-btn" data-index="0">ბევრი ოქროსა და სასახლის ქონა.</button>
-          <button type="button" class="option-btn" data-index="1">მფრინავი ხალიჩით მსოფლიოს შემოვლა.</button>
-          <button type="button" class="option-btn" data-index="2">პრინცად ქცევა და იასმინის ცოლად შერთვა.</button>
+          <button type="button" class="option-btn" data-correct="true">ა) პრინცად ქცევა</button>
+          <button type="button" class="option-btn" data-correct="false">ბ) ოქროთი სავსე სკივრი</button>
+          <button type="button" class="option-btn" data-correct="false">გ) ჯინის გათავისუფლება</button>
         </div>
-        <div class="feedback" role="status"></div>
+        <div class="feedback" role="status" aria-live="polite"></div>
       </div>
 
       <!-- დავალება 4 -->
-      <div class="task-card quiz-item" data-correct="1">
-        <div class="task-title">4. როგორ შეხვდნენ ალადინის გამოჩენას აგრაბაჰელები?</div>
+      <div class="task-card" data-quiz="4">
+        <div class="task-title">4. რით დაამარცხა ალადინმა ბოროტი ჯადოქარი?</div>
         <div class="options">
-          <button type="button" class="option-btn" data-index="0">შეეშინდათ და სახლებში დაიმალნენ.</button>
-          <button type="button" class="option-btn" data-index="1">ქუჩაში გამოვიდნენ სანახავად, მბრძანებელი კი აღფრთოვანდა.</button>
-          <button type="button" class="option-btn" data-index="2">ყურადღება არ მიაქციეს.</button>
+          <button type="button" class="option-btn" data-correct="false">ა) ჯადოსნური ხმლით</button>
+          <button type="button" class="option-btn" data-correct="false">ბ) სულთნის ჯარის დახმარებით</button>
+          <button type="button" class="option-btn" data-correct="true">გ) გონიერებითა და სიმამაცით</button>
         </div>
-        <div class="feedback" role="status"></div>
+        <div class="feedback" role="status" aria-live="polite"></div>
       </div>
 
       <!-- დავალება 5 -->
-      <div class="task-card quiz-item" data-correct="0">
-        <div class="task-title">5. რომელ ფრაზაში ჩანს, რომ ალადინი და იასმინი თავს შესანიშნავად გრძნობდნენ?</div>
+      <div class="task-card" data-quiz="5">
+        <div class="task-title">5. რა არის ამ ზღაპრის მთავარი სათქმელი?</div>
         <div class="options">
-          <button type="button" class="option-btn" data-index="0">„გრძნობდნენ, ჩიტებივით თავისუფლები იყვნენ...“</button>
-          <button type="button" class="option-btn" data-index="1">„შენც ისეთივე მედიდური ხარ, როგორიც დანარჩენი პრინცები!“</button>
-          <button type="button" class="option-btn" data-index="2">„არა, ეს შეუძლებელია! იქ ხომ მხოლოდ მდაბიოები დადიან!“</button>
+          <button type="button" class="option-btn" data-correct="false">ა) სიმდიდრე ყველაზე მნიშვნელოვანია</button>
+          <button type="button" class="option-btn" data-correct="true">ბ) სიკეთე, მეგობრობა და თავისუფლება ნებისმიერ ჯადოქრობაზე ძლიერია</button>
+          <button type="button" class="option-btn" data-correct="false">გ) გამოქვაბულში შესვლა ყოველთვის საშიშია</button>
         </div>
-        <div class="feedback" role="status"></div>
+        <div class="feedback" role="status" aria-live="polite"></div>
       </div>
 
       <!-- დავალება 6: სიტყვების დაკავშირება -->
       <div class="task-card">
-        <div class="task-title">6. შეუსაბამე სიტყვებს სწორი მნიშვნელობა</div>
+        <div class="task-title">6. დააკავშირე სიტყვა მის სწორ განმარტებასთან:</div>
         <div class="match-row">
-          <span class="match-word">მედიდური</span>
-          <select id="match-1" aria-label="მედიდური - აირჩიე მნიშვნელობა">
-            <option value="">აირჩიე პასუხი...</option>
-            <option value="proud">ამაყი, ქედმაღალი</option>
-            <option value="changed">სრულიად შეიცვალა გარეგნობა</option>
-            <option value="tricked">მოატყუა, ჭკუით აჯობა</option>
+          <span class="match-word">ომახიანი</span>
+          <select id="match-1" aria-label="სიტყვის ომახიანი განმარტება">
+            <option value="">აირჩიე განმარტება...</option>
+            <option value="lamp">ძველებური სანათი ჭურჭელი</option>
+            <option value="loud">ხმამაღალი, მტკიცე და მხნე</option>
+            <option value="king">აღმოსავლეთის ქვეყნების მმართველი</option>
           </select>
         </div>
         <div class="match-row">
-          <span class="match-word">გადასხვაფერდა</span>
-          <select id="match-2" aria-label="გადასხვაფერდა - აირჩიე მნიშვნელობა">
-            <option value="">აირჩიე პასუხი...</option>
-            <option value="proud">ამაყი, ქედმაღალი</option>
-            <option value="changed">სრულიად შეიცვალა გარეგნობა</option>
-            <option value="tricked">მოატყუა, ჭკუით აჯობა</option>
+          <span class="match-word">სულთანი</span>
+          <select id="match-2" aria-label="სიტყვის სულთანი განმარტება">
+            <option value="">აირჩიე განმარტება...</option>
+            <option value="king">აღმოსავლეთის ქვეყნების მმართველი</option>
+            <option value="loud">ხმამაღალი, მტკიცე და მხნე</option>
+            <option value="lamp">ძველებური სანათი ჭურჭელი</option>
           </select>
         </div>
         <div class="match-row">
-          <span class="match-word">გააბრიყვა</span>
-          <select id="match-3" aria-label="გააბრიყვა - აირჩიე მნიშვნელობა">
-            <option value="">აირჩიე პასუხი...</option>
-            <option value="proud">ამაყი, ქედმაღალი</option>
-            <option value="changed">სრულიად შეიცვალა გარეგნობა</option>
-            <option value="tricked">მოატყუა, ჭკუით აჯობა</option>
+          <span class="match-word">ლამპარი</span>
+          <select id="match-3" aria-label="სიტყვის ლამპარი განმარტება">
+            <option value="">აირჩიე განმარტება...</option>
+            <option value="loud">ხმამაღალი, მტკიცე და მხნე</option>
+            <option value="lamp">ძველებური სანათი ჭურჭელი</option>
+            <option value="king">აღმოსავლეთის ქვეყნების მმართველი</option>
           </select>
         </div>
-        <button type="button" class="btn-secondary" id="check-matches" style="margin-top: 8px;">შეამოწმე სიტყვები</button>
-        <div class="feedback" id="match-feedback" role="status"></div>
+        <button type="button" class="btn-primary" id="check-matches" style="margin-top: 10px;">შეამოწმე პასუხები</button>
+        <div class="feedback" id="match-feedback" role="status" aria-live="polite"></div>
       </div>
 
       <!-- დავალება 7: ეპიზოდების ილუსტრაციების დალაგება და დასათაურება -->
       <div class="task-card">
-        <div class="task-title">7. დაალაგე ეპიზოდების ილუსტრაციები თანმიმდევრობით და დაასათაურე</div>
-        <p class="task-subtitle">ისრების (▲ / ▼) ან გადათრევის დახმარებით დაალაგე ნახატები ამბის მიხედვით (1-დან 4-მდე) და თითოეულს შეურჩიე სათაური.</p>
+        <div class="task-title">7. დაალაგე ილუსტრაციები ზღაპრის თანმიმდევრობით და დაასათაურე</div>
+        <div class="task-subtitle">დააკვირდი ნახატებს, გადააადგილე ბარათები ღილაკებით („ზემოთ“ / „ქვემოთ“) სწორი თანმიმდევრობით და თითოეულს შეურჩიე სათაური.</div>
 
         <div class="episode-list" id="episode-list">
-          <!-- არეული საწყისი თანმიმდევრობა: 3, 1, 4, 2 -->
-          
-          <!-- ეპიზოდი 3: სასახლეში სტუმრობა -->
-          <div class="episode-card" draggable="true" data-ep="3">
-            <div class="episode-order-box">
-              <span class="episode-num">1</span>
+          <!-- ეპიზოდი 3 (თავდაპირველად არეული თანმიმდევრობით) -->
+          <div class="episode-card" draggable="true" data-correct-order="3">
+            <div class="episode-top-bar">
+              <div class="episode-badge-wrap">
+                <span class="episode-num">1</span>
+                <span>ილუსტრაცია</span>
+              </div>
               <div class="move-btns">
-                <button type="button" class="move-btn move-up" aria-label="ზემოთ აწევა">▲</button>
-                <button type="button" class="move-btn move-down" aria-label="ქვემოთ ჩამოწევა">▼</button>
+                <button type="button" class="move-btn move-up" aria-label="ზემოთ აწევა">▲ ზემოთ</button>
+                <button type="button" class="move-btn move-down" aria-label="ქვემოთ ჩამოწევა">▼ ქვემოთ</button>
               </div>
             </div>
-            <div class="episode-art" role="img" aria-label="აგრაბაჰის სასახლის გუმბათები და მფრინავი ხალიჩა">
-              <svg viewBox="0 0 150 105" width="100%" height="100%">
-                <rect width="150" height="105" fill="#FEF3C7"/>
-                <!-- სასახლე -->
-                <rect x="45" y="48" width="60" height="45" fill="#FBBF24" stroke="#B45309" stroke-width="1.5"/>
-                <path d="M55 48 C55 28, 95 28, 95 48 Z" fill="#0F766E"/>
-                <line x1="75" y1="22" x2="75" y2="33" stroke="#B45309" stroke-width="2"/>
-                <rect x="67" y="68" width="16" height="25" rx="8" fill="#78350F"/>
-                <!-- მფრინავი ხალიჩა -->
-                <path d="M12 32 L42 26 L36 38 L8 42 Z" fill="#DC2626" stroke="#F59E0B" stroke-width="1.5"/>
-                <circle cx="24" cy="24" r="4" fill="#1E293B"/>
-              </svg>
-            </div>
-            <div class="episode-controls">
-              <label class="episode-label">შეურჩიე სათაური ამ ეპიზოდს:</label>
-              <select class="episode-title-select" aria-label="ეპიზოდის სათაურის არჩევა">
-                <option value="">აირჩიე სათაური...</option>
-                <option value="1">ჯინის გამოჩენა გამოქვაბულში</option>
-                <option value="2">ალადინის პრინცად გადაქცევა</option>
-                <option value="3">სტუმრობა აგრაბაჰის სასახლეში</option>
-                <option value="4">გაფრენა ვარსკვლავებიან ცაზე</option>
-              </select>
+            <div class="episode-content-grid">
+              <div class="episode-art">
+                <!-- მკაფიო ილუსტრაცია: პრინცი ალადინი მფრინავ ხალიჩაზე მიფრინავს სასახლისკენ -->
+                <svg viewBox="0 0 420 250" role="img" aria-label="პრინცის სამოსში გამოწყობილი ალადინი მფრინავ ხალიჩაზე მიფრინავს სულთნის სასახლისკენ">
+                  <defs>
+                    <linearGradient id="daySky" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#38BDF8"/>
+                      <stop offset="100%" stop-color="#BAE6FD"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="420" height="250" fill="url(#daySky)"/>
+                  <!-- მზე და ღრუბლები -->
+                  <circle cx="55" cy="48" r="22" fill="#FDE047"/>
+                  <ellipse cx="160" cy="45" rx="34" ry="12" fill="#FFFFFF" opacity="0.85"/>
+                  <ellipse cx="182" cy="42" rx="24" ry="10" fill="#FFFFFF" opacity="0.85"/>
+                  <!-- სულთნის დიდი სასახლე მარჯვნივ -->
+                  <rect x="275" y="125" width="125" height="95" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+                  <!-- სასახლის მთავარი გუმბათი -->
+                  <path d="M295 125 Q337 65 380 125 Z" fill="#F59E0B"/>
+                  <line x1="337" y1="68" x2="337" y2="85" stroke="#B45309" stroke-width="3"/>
+                  <!-- კოშკები -->
+                  <rect x="262" y="100" width="16" height="120" fill="#FDE68A"/>
+                  <path d="M260 100 Q270 80 280 100 Z" fill="#0D9488"/>
+                  <rect x="396" y="100" width="16" height="120" fill="#FDE68A"/>
+                  <path d="M394 100 Q404 80 414 100 Z" fill="#0D9488"/>
+                  <!-- სასახლის თაღოვანი კარი -->
+                  <path d="M322 220 L322 175 Q337 155 352 175 L352 220 Z" fill="#78350F"/>
+                  <!-- უდაბნოს ქვიშა ქვემოთ -->
+                  <path d="M0 215 Q140 198 280 218 L420 218 L420 250 L0 250 Z" fill="#FCD34D"/>
+                  <!-- მფრინავი ხალიჩა ჰაერში -->
+                  <path d="M45 148 L185 135 L165 162 L28 175 Z" fill="#DC2626" stroke="#F59E0B" stroke-width="3"/>
+                  <line x1="52" y1="154" x2="172" y2="143" stroke="#FDE047" stroke-width="2" stroke-dasharray="6,4"/>
+                  <!-- პრინცი ალადინი ხალიჩაზე -->
+                  <!-- თეთრი პრინცის მოსასხამი -->
+                  <path d="M90 148 L100 108 L124 108 L134 148 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+                  <rect x="100" y="126" width="24" height="6" fill="#F59E0B"/>
+                  <!-- თავი და პრინცის ჩალმა ბუმბულით -->
+                  <circle cx="112" cy="94" r="13" fill="#FDBA74"/>
+                  <path d="M98 88 Q112 72 126 88 Z" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+                  <path d="M112 76 Q118 62 125 66" fill="none" stroke="#EF4444" stroke-width="3" stroke-linecap="round"/>
+                  <!-- სახე -->
+                  <circle cx="116" cy="93" r="2" fill="#1E293B"/>
+                  <path d="M112 99 Q116 103 120 99" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+                  <!-- წინ გაწვდილი ხელი სასახლისკენ -->
+                  <path d="M124 114 L152 106" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+                  <circle cx="154" cy="105" r="4" fill="#FDBA74"/>
+                </svg>
+              </div>
+              <div class="episode-controls">
+                <label class="episode-label">შეურჩიე სათაური ამ ეპიზოდს:</label>
+                <select class="episode-title-select" aria-label="ეპიზოდის სათაურის არჩევა">
+                  <option value="">აირჩიე მზა სათაური...</option>
+                  <option value="1">1. ჯინის გამოჩენა ბნელ გამოქვაბულში</option>
+                  <option value="2">2. ჯინი ალადინს პრინცად აქცევს</option>
+                  <option value="3">3. პრინცი ალადინი მიფრინავს სასახლისკენ</option>
+                  <option value="4">4. მოგზაურობა მფრინავი ხალიჩით ღამის ცაზე</option>
+                </select>
+                <input type="text" class="episode-custom-input" placeholder="ან ჩაწერე შენი მოფიქრებული სათაური..." aria-label="საკუთარი სათაურის ჩაწერა">
+              </div>
             </div>
           </div>
 
-          <!-- ეპიზოდი 1: ლამპარი და ჯინი -->
-          <div class="episode-card" draggable="true" data-ep="1">
-            <div class="episode-order-box">
-              <span class="episode-num">2</span>
+          <!-- ეპიზოდი 1 -->
+          <div class="episode-card" draggable="true" data-correct-order="1">
+            <div class="episode-top-bar">
+              <div class="episode-badge-wrap">
+                <span class="episode-num">2</span>
+                <span>ილუსტრაცია</span>
+              </div>
               <div class="move-btns">
-                <button type="button" class="move-btn move-up" aria-label="ზემოთ აწევა">▲</button>
-                <button type="button" class="move-btn move-down" aria-label="ქვემოთ ჩამოწევა">▼</button>
+                <button type="button" class="move-btn move-up" aria-label="ზემოთ აწევა">▲ ზემოთ</button>
+                <button type="button" class="move-btn move-down" aria-label="ქვემოთ ჩამოწევა">▼ ქვემოთ</button>
               </div>
             </div>
-            <div class="episode-art" role="img" aria-label="გამოქვაბული, ოქროს ლამპარი და ცისფერი კვამლი">
-              <svg viewBox="0 0 150 105" width="100%" height="100%">
-                <rect width="150" height="105" fill="#1E293B"/>
-                <!-- ცისფერი კვამლი/ჯინი -->
-                <path d="M92 65 C110 50, 95 25, 115 15 C128 22, 125 45, 105 65 Z" fill="#38BDF8" opacity="0.85"/>
-                <circle cx="115" cy="22" r="7" fill="#7DD3FC"/>
-                <!-- ოქროს ლამპარი -->
-                <path d="M35 78 C35 68, 55 65, 72 65 L95 58 L88 72 C88 82, 75 88, 60 88 C45 88, 35 84, 35 78 Z" fill="#F59E0B"/>
-                <ellipse cx="62" cy="90" rx="15" ry="3" fill="#D97706"/>
-              </svg>
-            </div>
-            <div class="episode-controls">
-              <label class="episode-label">შეურჩიე სათაური ამ ეპიზოდს:</label>
-              <select class="episode-title-select" aria-label="ეპიზოდის სათაურის არჩევა">
-                <option value="">აირჩიე სათაური...</option>
-                <option value="1">ჯინის გამოჩენა გამოქვაბულში</option>
-                <option value="2">ალადინის პრინცად გადაქცევა</option>
-                <option value="3">სტუმრობა აგრაბაჰის სასახლეში</option>
-                <option value="4">გაფრენა ვარსკვლავებიან ცაზე</option>
-              </select>
+            <div class="episode-content-grid">
+              <div class="episode-art">
+                <!-- მკაფიო ილუსტრაცია: ბნელი გამოქვაბული, ოქროს გროვა, ალადინი ლამპრით და ჯინი -->
+                <svg viewBox="0 0 420 250" role="img" aria-label="ბნელ გამოქვაბულში ალადინი ხეხავს ოქროს ლამპარს და იქიდან ცისფერი ჯინი ამოდის">
+                  <rect width="420" height="250" fill="#1E293B"/>
+                  <!-- გამოქვაბულის კედლები და ქვები -->
+                  <path d="M0 0 L420 0 L420 65 Q310 35 210 55 Q100 30 0 70 Z" fill="#334155"/>
+                  <path d="M0 210 L420 210 L420 250 L0 250 Z" fill="#475569"/>
+                  <!-- ოქროს მონეტების გროვა მარცხნივ -->
+                  <path d="M15 210 Q55 165 105 210 Z" fill="#F59E0B"/>
+                  <circle cx="48" cy="196" r="4" fill="#FEF08A"/>
+                  <circle cx="65" cy="190" r="4" fill="#FEF08A"/>
+                  <circle cx="58" cy="202" r="4" fill="#FEF08A"/>
+                  <!-- ალადინი (ღარიბი ბიჭის სამოსში: წითელი ჟილეტი, თეთრი პერანგი, პატარა წითელი ქუდი) -->
+                  <!-- ფეხები -->
+                  <rect x="115" y="175" width="10" height="35" rx="4" fill="#E2E8F0"/>
+                  <rect x="131" y="175" width="10" height="35" rx="4" fill="#E2E8F0"/>
+                  <!-- ტანი და წითელი ჟილეტი -->
+                  <rect x="112" y="132" width="32" height="45" rx="6" fill="#F8FAFC"/>
+                  <path d="M112 132 L123 132 L123 172 L112 172 Z" fill="#DC2626"/>
+                  <path d="M133 132 L144 132 L144 172 L133 172 Z" fill="#DC2626"/>
+                  <!-- თავი და წითელი ქუდი -->
+                  <circle cx="128" cy="114" r="15" fill="#FDBA74"/>
+                  <path d="M120 100 L136 100 L134 90 L122 90 Z" fill="#DC2626"/>
+                  <circle cx="133" cy="113" r="2" fill="#1E293B"/>
+                  <!-- გაწვდილი ხელები ლამპრით -->
+                  <path d="M142 145 L175 152" stroke="#FDBA74" stroke-width="7" stroke-linecap="round"/>
+                  <!-- ჯადოსნური ლამპარი ხელში -->
+                  <ellipse cx="188" cy="154" rx="18" ry="9" fill="#F59E0B"/>
+                  <path d="M204 152 L222 142 L202 148 Z" fill="#FDE047"/>
+                  <!-- ჯადოსნური კვამლი ლამპრიდან -->
+                  <path d="M222 142 Q255 145 275 120 Q295 95 315 110" fill="none" stroke="#38BDF8" stroke-width="14" stroke-linecap="round"/>
+                  <!-- უზარმაზარი ჯინი გამოქვაბულში -->
+                  <ellipse cx="325" cy="95" rx="34" ry="26" fill="#0284C7"/>
+                  <path d="M300 115 Q325 145 345 115 Z" fill="#38BDF8"/>
+                  <circle cx="325" cy="58" r="18" fill="#38BDF8"/>
+                  <path d="M308 50 Q325 34 342 50 Z" fill="#FFFFFF"/>
+                  <circle cx="319" cy="56" r="2.5" fill="#0F172A"/>
+                  <circle cx="331" cy="56" r="2.5" fill="#0F172A"/>
+                  <path d="M318 64 Q325 71 332 64" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                  <!-- ჯინის ხელები -->
+                  <path d="M292 88 Q272 72 265 88" fill="none" stroke="#0284C7" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M358 88 Q378 72 385 88" fill="none" stroke="#0284C7" stroke-width="11" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="episode-controls">
+                <label class="episode-label">შეურჩიე სათაური ამ ეპიზოდს:</label>
+                <select class="episode-title-select" aria-label="ეპიზოდის სათაურის არჩევა">
+                  <option value="">აირჩიე მზა სათაური...</option>
+                  <option value="1">1. ჯინის გამოჩენა ბნელ გამოქვაბულში</option>
+                  <option value="2">2. ჯინი ალადინს პრინცად აქცევს</option>
+                  <option value="3">3. პრინცი ალადინი მიფრინავს სასახლისკენ</option>
+                  <option value="4">4. მოგზაურობა მფრინავი ხალიჩით ღამის ცაზე</option>
+                </select>
+                <input type="text" class="episode-custom-input" placeholder="ან ჩაწერე შენი მოფიქრებული სათაური..." aria-label="საკუთარი სათაურის ჩაწერა">
+              </div>
             </div>
           </div>
 
-          <!-- ეპიზოდი 4: ვარსკვლავებიანი ცა -->
-          <div class="episode-card" draggable="true" data-ep="4">
-            <div class="episode-order-box">
-              <span class="episode-num">3</span>
+          <!-- ეპიზოდი 4 -->
+          <div class="episode-card" draggable="true" data-correct-order="4">
+            <div class="episode-top-bar">
+              <div class="episode-badge-wrap">
+                <span class="episode-num">3</span>
+                <span>ილუსტრაცია</span>
+              </div>
               <div class="move-btns">
-                <button type="button" class="move-btn move-up" aria-label="ზემოთ აწევა">▲</button>
-                <button type="button" class="move-btn move-down" aria-label="ქვემოთ ჩამოწევა">▼</button>
+                <button type="button" class="move-btn move-up" aria-label="ზემოთ აწევა">▲ ზემოთ</button>
+                <button type="button" class="move-btn move-down" aria-label="ქვემოთ ჩამოწევა">▼ ქვემოთ</button>
               </div>
             </div>
-            <div class="episode-art" role="img" aria-label="ღამის ცა, მთვარე, ვარსკვლავები და მფრინავი ხალიჩა ორი ფიგურით">
-              <svg viewBox="0 0 150 105" width="100%" height="100%">
-                <rect width="150" height="105" fill="#0F172A"/>
-                <!-- მთვარე და ვარსკვლავები -->
-                <circle cx="122" cy="24" r="10" fill="#FDE047"/>
-                <circle cx="126" cy="21" r="9" fill="#0F172A"/>
-                <circle cx="30" cy="20" r="2" fill="#FEF08A"/>
-                <circle cx="65" cy="15" r="2.5" fill="#FEF08A"/>
-                <circle cx="95" cy="32" r="2" fill="#FEF08A"/>
-                <!-- ღრუბელი -->
-                <path d="M15 88 Q30 75 48 85 Q65 72 85 88 Z" fill="#334155"/>
-                <!-- ხალიჩა და ალადინი/იასმინი -->
-                <path d="M45 62 L105 56 L98 68 L38 72 Z" fill="#0D9488" stroke="#FBBF24" stroke-width="1.5"/>
-                <circle cx="64" cy="48" r="5" fill="#FDBA74"/>
-                <circle cx="80" cy="47" r="5" fill="#FDBA74"/>
-              </svg>
-            </div>
-            <div class="episode-controls">
-              <label class="episode-label">შეურჩიე სათაური ამ ეპიზოდს:</label>
-              <select class="episode-title-select" aria-label="ეპიზოდის სათაურის არჩევა">
-                <option value="">აირჩიე სათაური...</option>
-                <option value="1">ჯინის გამოჩენა გამოქვაბულში</option>
-                <option value="2">ალადინის პრინცად გადაქცევა</option>
-                <option value="3">სტუმრობა აგრაბაჰის სასახლეში</option>
-                <option value="4">გაფრენა ვარსკვლავებიან ცაზე</option>
-              </select>
+            <div class="episode-content-grid">
+              <div class="episode-art">
+                <!-- მკაფიო ილუსტრაცია: ღამის ვარსკვლავებიანი ცა, ნახევარმთვარე, ალადინი და პრინცესა იასმინი ხალიჩაზე -->
+                <svg viewBox="0 0 420 250" role="img" aria-label="ღამის ვარსკვლავებიან ცაზე ალადინი და პრინცესა იასმინი ერთად მიფრინავენ ხალიჩით">
+                  <defs>
+                    <linearGradient id="nightSky" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#0F172A"/>
+                      <stop offset="100%" stop-color="#1E3A8A"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="420" height="250" fill="url(#nightSky)"/>
+                  <!-- ნახევარმთვარე და ვარსკვლავები -->
+                  <path d="M345 35 A26 26 0 1 0 375 68 A20 20 0 1 1 345 35 Z" fill="#FDE047"/>
+                  <circle cx="65" cy="45" r="3" fill="#FEF08A"/>
+                  <circle cx="130" cy="30" r="2.5" fill="#FFFFFF"/>
+                  <circle cx="220" cy="42" r="3" fill="#FDE047"/>
+                  <circle cx="285" cy="80" r="2" fill="#FFFFFF"/>
+                  <circle cx="80" cy="110" r="2.5" fill="#FDE047"/>
+                  <circle cx="370" cy="145" r="2.5" fill="#FFFFFF"/>
+                  <!-- მფრინავი ხალიჩა ცენტრში -->
+                  <path d="M95 172 L315 152 L285 190 L65 210 Z" fill="#B91C1C" stroke="#F59E0B" stroke-width="3.5"/>
+                  <line x1="102" y1="180" x2="300" y2="162" stroke="#FDE047" stroke-width="2.5" stroke-dasharray="8,5"/>
+                  <!-- ალადინი (მარცხნივ ხალიჩაზე) -->
+                  <path d="M145 170 L153 128 L177 128 L185 170 Z" fill="#FFFFFF"/>
+                  <circle cx="165" cy="112" r="14" fill="#FDBA74"/>
+                  <path d="M151 106 Q165 90 179 106 Z" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+                  <circle cx="170" cy="111" r="2" fill="#1E293B"/>
+                  <!-- პრინცესა იასმინი (მარჯვნივ ხალიჩაზე, ფირუზისფერი კაბითა და გვირგვინით) -->
+                  <path d="M205 165 L213 126 L237 126 L245 165 Z" fill="#14B8A6"/>
+                  <!-- შავი გრძელი თმა -->
+                  <path d="M210 112 Q204 135 212 152 L238 152 Q246 135 240 112 Z" fill="#0F172A"/>
+                  <circle cx="225" cy="112" r="13" fill="#FDBA74"/>
+                  <!-- ოქროს დიადემა -->
+                  <polygon points="215,101 225,92 235,101" fill="#FDE047"/>
+                  <circle cx="220" cy="111" r="2" fill="#1E293B"/>
+                  <path d="M219 117 Q224 121 229 117" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="episode-controls">
+                <label class="episode-label">შეურჩიე სათაური ამ ეპიზოდს:</label>
+                <select class="episode-title-select" aria-label="ეპიზოდის სათაურის არჩევა">
+                  <option value="">აირჩიე მზა სათაური...</option>
+                  <option value="1">1. ჯინის გამოჩენა ბნელ გამოქვაბულში</option>
+                  <option value="2">2. ჯინი ალადინს პრინცად აქცევს</option>
+                  <option value="3">3. პრინცი ალადინი მიფრინავს სასახლისკენ</option>
+                  <option value="4">4. მოგზაურობა მფრინავი ხალიჩით ღამის ცაზე</option>
+                </select>
+                <input type="text" class="episode-custom-input" placeholder="ან ჩაწერე შენი მოფიქრებული სათაური..." aria-label="საკუთარი სათაურის ჩაწერა">
+              </div>
             </div>
           </div>
 
-          <!-- ეპიზოდი 2: პრინცად გადაქცევა -->
-          <div class="episode-card" draggable="true" data-ep="2">
-            <div class="episode-order-box">
-              <span class="episode-num">4</span>
+          <!-- ეპიზოდი 2 -->
+          <div class="episode-card" draggable="true" data-correct-order="2">
+            <div class="episode-top-bar">
+              <div class="episode-badge-wrap">
+                <span class="episode-num">4</span>
+                <span>ილუსტრაცია</span>
+              </div>
               <div class="move-btns">
-                <button type="button" class="move-btn move-up" aria-label="ზემოთ აწევა">▲</button>
-                <button type="button" class="move-btn move-down" aria-label="ქვემოთ ჩამოწევა">▼</button>
+                <button type="button" class="move-btn move-up" aria-label="ზემოთ აწევა">▲ ზემოთ</button>
+                <button type="button" class="move-btn move-down" aria-label="ქვემოთ ჩამოწევა">▼ ქვემოთ</button>
               </div>
             </div>
-            <div class="episode-art" role="img" aria-label="პრინცის ჩალმა ფრთით და ჯადოსნური ვარსკვლავები">
-              <svg viewBox="0 0 150 105" width="100%" height="100%">
-                <rect width="150" height="105" fill="#CCFBF1"/>
-                <!-- ჯადოსნური რკალი -->
-                <circle cx="75" cy="54" r="36" fill="none" stroke="#0F766E" stroke-width="2" stroke-dasharray="5 5"/>
-                <!-- პრინცის სამოსი / ჩალმა -->
-                <path d="M52 52 C52 34, 98 34, 98 52 Z" fill="#FFFFFF" stroke="#0F766E" stroke-width="2"/>
-                <circle cx="75" cy="40" r="4" fill="#DC2626"/>
-                <path d="M75 36 Q82 22 88 26 Q83 34 75 36 Z" fill="#F59E0B"/>
-                <!-- სამოსი -->
-                <path d="M55 58 L95 58 L102 88 L48 88 Z" fill="#0F766E"/>
-                <path d="M70 58 L80 58 L75 88 Z" fill="#FBBF24"/>
-              </svg>
-            </div>
-            <div class="episode-controls">
-              <label class="episode-label">შეურჩიე სათაური ამ ეპიზოდს:</label>
-              <select class="episode-title-select" aria-label="ეპიზოდის სათაურის არჩევა">
-                <option value="">აირჩიე სათაური...</option>
-                <option value="1">ჯინის გამოჩენა გამოქვაბულში</option>
-                <option value="2">ალადინის პრინცად გადაქცევა</option>
-                <option value="3">სტუმრობა აგრაბაჰის სასახლეში</option>
-                <option value="4">გაფრენა ვარსკვლავებიან ცაზე</option>
-              </select>
+            <div class="episode-content-grid">
+              <div class="episode-art">
+                <!-- მკაფიო ილუსტრაცია: ჯინი ჯადოქრობით ალადინს მდიდრულ პრინცის სამოსში აწყობს -->
+                <svg viewBox="0 0 420 250" role="img" aria-label="ჯინი ხელის აქნევით და ოქროსფერი ნაპერწკლებით ალადინს პრინცად აქცევს">
+                  <rect width="420" height="250" fill="#FEF3C7"/>
+                  <!-- იატაკი -->
+                  <rect x="0" y="212" width="420" height="38" fill="#FDE68A"/>
+                  <!-- ჯინი მარცხნივ, ჯადოქრობის პოზაში -->
+                  <path d="M55 212 Q85 160 75 130 L125 130 Q115 160 145 212 Z" fill="#0284C7"/>
+                  <ellipse cx="100" cy="110" rx="34" ry="24" fill="#38BDF8"/>
+                  <circle cx="100" cy="70" r="18" fill="#38BDF8"/>
+                  <path d="M83 62 Q100 46 117 62 Z" fill="#FFFFFF"/>
+                  <circle cx="105" cy="68" r="2.5" fill="#0F172A"/>
+                  <path d="M95 76 Q102 83 110 76" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                  <!-- ჯინის გაწვდილი ხელები ალადინისკენ -->
+                  <path d="M130 105 L185 95" stroke="#0284C7" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M128 122 L182 128" stroke="#38BDF8" stroke-width="10" stroke-linecap="round"/>
+                  <!-- ჯადოსნური სხივი და ვარსკვლავები -->
+                  <path d="M185 95 Q235 80 275 110" fill="none" stroke="#F59E0B" stroke-width="5" stroke-dasharray="8,6"/>
+                  <polygon points="225,65 229,77 241,81 229,85 225,97 221,85 209,81 221,77" fill="#F59E0B"/>
+                  <polygon points="245,140 248,149 257,152 248,155 245,164 242,155 233,152 242,149" fill="#0D9488"/>
+                  <circle cx="215" cy="125" r="5" fill="#F59E0B"/>
+                  <circle cx="345" cy="95" r="5" fill="#F59E0B"/>
+                  <!-- პრინცად ქცეული ალადინი მარჯვნივ -->
+                  <!-- მდიდრული თეთრი და ოქროსფერი სამოსი -->
+                  <rect x="282" y="172" width="14" height="40" rx="5" fill="#F8FAFC" stroke="#CBD5E1"/>
+                  <rect x="304" y="172" width="14" height="40" rx="5" fill="#F8FAFC" stroke="#CBD5E1"/>
+                  <path d="M274 175 L282 120 L318 120 L326 175 Z" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2.5"/>
+                  <!-- ოქროს ქამარი და მოსასხამი -->
+                  <rect x="280" y="146" width="40" height="9" rx="3" fill="#F59E0B"/>
+                  <path d="M282 120 L264 168 L278 168 Z" fill="#7C3AED"/>
+                  <path d="M318 120 L336 168 L322 168 Z" fill="#7C3AED"/>
+                  <!-- თავი და პრინცის ჩალმა ძვირფასი ქვით -->
+                  <circle cx="300" cy="100" r="16" fill="#FDBA74"/>
+                  <path d="M282 92 Q300 72 318 92 Z" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2.5"/>
+                  <circle cx="300" cy="83" r="4.5" fill="#EF4444"/>
+                  <circle cx="294" cy="99" r="2" fill="#1E293B"/>
+                  <circle cx="306" cy="99" r="2" fill="#1E293B"/>
+                  <path d="M294 106 Q300 112 306 106" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="episode-controls">
+                <label class="episode-label">შეურჩიე სათაური ამ ეპიზოდს:</label>
+                <select class="episode-title-select" aria-label="ეპიზოდის სათაურის არჩევა">
+                  <option value="">აირჩიე მზა სათაური...</option>
+                  <option value="1">1. ჯინის გამოჩენა ბნელ გამოქვაბულში</option>
+                  <option value="2">2. ჯინი ალადინს პრინცად აქცევს</option>
+                  <option value="3">3. პრინცი ალადინი მიფრინავს სასახლისკენ</option>
+                  <option value="4">4. მოგზაურობა მფრინავი ხალიჩით ღამის ცაზე</option>
+                </select>
+                <input type="text" class="episode-custom-input" placeholder="ან ჩაწერე შენი მოფიქრებული სათაური..." aria-label="საკუთარი სათაურის ჩაწერა">
+              </div>
             </div>
           </div>
         </div>
 
         <button type="button" class="btn-primary" id="check-episodes" style="margin-top: 16px;">შეამოწმე თანმიმდევრობა და სათაურები</button>
-        <div class="feedback" id="episode-feedback" role="status"></div>
+        <div class="feedback" id="episode-feedback" role="status" aria-live="polite"></div>
       </div>
 
       <!-- დავალება 8: შემოქმედებითი დავალება -->
       <div class="task-card">
-        <div class="task-title">8. ზღაპარში ნახსენებია ჯადოსნური ნივთები. კიდევ რომელ ჯადოსნურ ნივთზე გსმენია?</div>
-        <form class="magic-form" id="magic-form" novalidate>
-          <input type="text" class="magic-input" id="magic-input" placeholder="მაგ: უჩინმაჩინის ქუდი, ჯადოსნური სარკე..." aria-label="ჯადოსნური ნივთის დასახელება">
-          <button type="submit" class="btn-primary">დამატება</button>
-        </form>
-        <div class="feedback" id="magic-feedback" role="status"></div>
+        <div class="task-title">8. დაასახელე სხვა ჯადოსნური ნივთები</div>
+        <div class="task-subtitle">კიდევ რა ჯადოსნური ნივთები გხვდება სხვა ზღაპრებში? ჩაწერე და დაამატე სიაში (მაგალითად: მფრინავი ხალიჩა, უჩინმაჩინის ქუდი, ნატვრისთვალი...).</div>
+        <div class="magic-form">
+          <input type="text" class="magic-input" id="magic-item-input" placeholder="ჩაწერე ჯადოსნური ნივთი..." aria-label="ჯადოსნური ნივთის დასახელება">
+          <button type="button" class="btn-primary" id="add-magic-btn">დამატება</button>
+        </div>
         <div class="magic-tags" id="magic-list">
           <span class="magic-tag">ჯადოსნური ლამპარი</span>
           <span class="magic-tag">მფრინავი ხალიჩა</span>
         </div>
+        <div class="feedback" id="magic-feedback" role="status" aria-live="polite"></div>
       </div>
 
       <div class="quiz-footer">
-        <div class="score-text" id="score-display">შესრულებული ტესტი: 0 / 5</div>
-        <button type="button" class="btn-secondary" id="reset-quiz">ტესტის თავიდან ცდა</button>
+        <span class="score-text" id="score-display">შესრულებული ტესტი: 0 / 5</span>
+        <button type="button" class="btn-secondary" id="reset-quiz">ტესტების თავიდან დაწყება</button>
       </div>
     </section>
   </main>
 
   <script>
-    // შრიფტის ზომა
+    // 1. ტექსტის ზომის რეგულირება
     let currentFontSize = 19;
-    const root = document.documentElement;
+    const minFontSize = 16;
+    const maxFontSize = 26;
+
     document.getElementById('font-increase').addEventListener('click', () => {
-      if (currentFontSize < 25) {
+      if (currentFontSize < maxFontSize) {
         currentFontSize += 2;
-        root.style.setProperty('--font-size', currentFontSize + 'px');
+        document.documentElement.style.setProperty('--font-size', currentFontSize + 'px');
       }
     });
+
     document.getElementById('font-decrease').addEventListener('click', () => {
-      if (currentFontSize > 15) {
+      if (currentFontSize > minFontSize) {
         currentFontSize -= 2;
-        root.style.setProperty('--font-size', currentFontSize + 'px');
+        document.documentElement.style.setProperty('--font-size', currentFontSize + 'px');
       }
     });
 
-    // 5 ტესტური კითხვა
-    const explanations = [
-      {
-        correct: "ყოჩაღ! ლამპარი აძაგძაგდა, ამოიფრქვა შუქი და კვამლისგან ჯინი გაჩნდა.",
-        hint: "მინიშნება: გადახედე ზღაპრის პირველ აბზაცს."
-      },
-      {
-        correct: "სწორია! ის ლამპრის მკვიდრი ჯინი იყო და სამი ნატვრის ასრულება შეეძლო.",
-        hint: "მინიშნება: წაიკითხე ჯინის პასუხი, როცა ალადინმა ჰკითხა — შენ ვინ ხარო."
-      },
-      {
-        correct: "ზუსტად ასეა! ალადინს პრინცად ქცევა და იასმინის ცოლად შერთვა სურდა.",
-        hint: "მინიშნება: გაიხსენე, რა უთხრა ალადინმა ჯინს თავშესაფართან მისვლისას."
-      },
-      {
-        correct: "სწორია! ქუჩა სავსე იყო ხალხით, მბრძანებელი კი აღფრთოვანებული დარჩა.",
-        hint: "მინიშნება: ნახე ის ადგილი, სადაც პრინცი ალი სატახტო დარბაზში შეფრინდა."
-      },
-      {
-        correct: "ყოჩაღ! ეს ფრაზა ზღაპრის ბოლო წინადადებაში წერია.",
-        hint: "მინიშნება: წაიკითხე ზღაპრის სულ ბოლო აბზაცი."
-      }
-    ];
-
+    // 2. ტესტები (1-5)
     let score = 0;
-    const quizItems = document.querySelectorAll('.quiz-item');
+    const quizItems = document.querySelectorAll('.task-card[data-quiz]');
     const scoreDisplay = document.getElementById('score-display');
 
-    quizItems.forEach((item, qIndex) => {
-      const correctIndex = parseInt(item.dataset.correct, 10);
+    quizItems.forEach(item => {
       const buttons = item.querySelectorAll('.option-btn');
       const feedback = item.querySelector('.feedback');
 
-      buttons.forEach((btn) => {
+      buttons.forEach(btn => {
         btn.addEventListener('click', () => {
-          const chosen = parseInt(btn.dataset.index, 10);
-          if (chosen === correctIndex) {
-            if (!item.dataset.solved) {
-              score++;
-              item.dataset.solved = "true";
-              scoreDisplay.textContent = `შესრულებული ტესტი: ${score} / 5`;
-            }
-            buttons.forEach(b => { b.classList.remove('wrong'); b.disabled = true; });
+          if (item.dataset.solved === 'true') return;
+          const isCorrect = btn.dataset.correct === 'true';
+
+          if (isCorrect) {
             btn.classList.add('correct');
-            feedback.textContent = explanations[qIndex].correct;
-            feedback.className = 'feedback show success';
+            feedback.textContent = "ყოჩაღ! პასუხი სწორია.";
+            feedback.className = "feedback show success";
+            item.dataset.solved = 'true';
+            buttons.forEach(b => b.disabled = true);
+            score++;
+            scoreDisplay.textContent = `შესრულებული ტესტი: ${score} / 5`;
           } else {
             btn.classList.add('wrong');
-            feedback.textContent = explanations[qIndex].hint;
-            feedback.className = 'feedback show hint';
+            feedback.textContent = "არა უშავს! კიდევ ერთხელ გადაავლე თვალი ზღაპარს და სცადე ხელახლა.";
+            feedback.className = "feedback show hint";
           }
         });
       });
     });
 
-    // დავალება 6: სიტყვების შემოწმება
+    // 3. სიტყვების დაკავშირება (დავალება 6)
     document.getElementById('check-matches').addEventListener('click', () => {
       const m1 = document.getElementById('match-1').value;
       const m2 = document.getElementById('match-2').value;
@@ -909,36 +1078,37 @@
       const fb = document.getElementById('match-feedback');
 
       if (!m1 || !m2 || !m3) {
-        fb.textContent = "გთხოვ, სამივე სიტყვას აურჩიე მნიშვნელობა.";
+        fb.textContent = "გთხოვ, სამივე სიტყვას შეურჩიო განმარტება.";
         fb.className = "feedback show hint";
         return;
       }
 
-      if (m1 === 'proud' && m2 === 'changed' && m3 === 'tricked') {
-        fb.textContent = "შესანიშნავია! სამივე სიტყვის მნიშვნელობა სწორად შეუსაბამე.";
+      if (m1 === 'loud' && m2 === 'king' && m3 === 'lamp') {
+        fb.textContent = "შესანიშნავია! სამივე სიტყვა სწორად დააკავშირე.";
         fb.className = "feedback show success";
       } else {
-        fb.textContent = "ერთი ან მეტი პასუხი არასწორია. შეამოწმე „სიტყვების განმარტების“ ბლოკი ზემოთ.";
+        fb.textContent = "ერთი ან მეტი პასუხი არასწორია. შეამოწმე სიტყვების ლექსიკონი ზემოთ.";
         fb.className = "feedback show error";
       }
     });
 
-    // დავალება 7: ეპიზოდების დალაგება და დასათაურება
+    // 4. ეპიზოდების ილუსტრაციების გადაადგილება და შემოწმება (დავალება 7)
     const episodeList = document.getElementById('episode-list');
+    let draggedCard = null;
 
     function updateEpisodeNumbers() {
       const cards = episodeList.querySelectorAll('.episode-card');
-      cards.forEach((card, idx) => {
-        card.querySelector('.episode-num').textContent = idx + 1;
-        card.querySelector('.move-up').disabled = idx === 0;
-        card.querySelector('.move-down').disabled = idx === cards.length - 1;
-        card.classList.remove('correct-card', 'wrong-card');
+      cards.forEach((card, index) => {
+        card.querySelector('.episode-num').textContent = index + 1;
+        card.querySelector('.move-up').disabled = (index === 0);
+        card.querySelector('.move-down').disabled = (index === cards.length - 1);
       });
     }
 
     episodeList.addEventListener('click', (e) => {
       const upBtn = e.target.closest('.move-up');
       const downBtn = e.target.closest('.move-down');
+
       if (upBtn) {
         const card = upBtn.closest('.episode-card');
         if (card.previousElementSibling) {
@@ -954,15 +1124,21 @@
       }
     });
 
-    // გადათრევით (Drag & Drop) დალაგება
-    let draggedCard = null;
     episodeList.addEventListener('dragstart', (e) => {
       const card = e.target.closest('.episode-card');
-      if (card) {
-        draggedCard = card;
-        e.dataTransfer.effectAllowed = 'move';
-      }
+      if (!card) return;
+      draggedCard = card;
+      setTimeout(() => card.style.opacity = '0.5', 0);
     });
+
+    episodeList.addEventListener('dragend', (e) => {
+      const card = e.target.closest('.episode-card');
+      if (card) card.style.opacity = '1';
+      document.querySelectorAll('.episode-card').forEach(c => c.classList.remove('drag-over'));
+      draggedCard = null;
+      updateEpisodeNumbers();
+    });
+
     episodeList.addEventListener('dragover', (e) => {
       e.preventDefault();
       const targetCard = e.target.closest('.episode-card');
@@ -970,83 +1146,85 @@
         targetCard.classList.add('drag-over');
       }
     });
+
     episodeList.addEventListener('dragleave', (e) => {
       const targetCard = e.target.closest('.episode-card');
       if (targetCard) targetCard.classList.remove('drag-over');
     });
+
     episodeList.addEventListener('drop', (e) => {
       e.preventDefault();
       const targetCard = e.target.closest('.episode-card');
       if (targetCard && draggedCard && targetCard !== draggedCard) {
-        targetCard.classList.remove('drag-over');
-        const allCards = Array.from(episodeList.children);
-        const draggedIdx = allCards.indexOf(draggedCard);
-        const targetIdx = allCards.indexOf(targetCard);
-        if (draggedIdx < targetIdx) {
+        const cards = Array.from(episodeList.children);
+        const draggedIndex = cards.indexOf(draggedCard);
+        const targetIndex = cards.indexOf(targetCard);
+        if (draggedIndex < targetIndex) {
           episodeList.insertBefore(draggedCard, targetCard.nextSibling);
         } else {
           episodeList.insertBefore(draggedCard, targetCard);
         }
-        updateEpisodeNumbers();
       }
+      updateEpisodeNumbers();
     });
 
     updateEpisodeNumbers();
 
-    // შემოწმება: ეპიზოდების თანმიმდევრობა და სათაურები
     document.getElementById('check-episodes').addEventListener('click', () => {
-      const cards = Array.from(episodeList.querySelectorAll('.episode-card'));
+      const cards = episodeList.querySelectorAll('.episode-card');
       const fb = document.getElementById('episode-feedback');
-      let allTitlesSelected = true;
-      let orderCorrectCount = 0;
-      let titlesCorrectCount = 0;
+      let allOrderCorrect = true;
+      let allTitlesValid = true;
+      let missingTitle = false;
 
       cards.forEach((card, index) => {
-        const expectedEp = String(index + 1);
-        const actualEp = card.dataset.ep;
+        const expectedOrder = String(index + 1);
+        const actualCorrectOrder = card.dataset.correctOrder;
         const selectedTitle = card.querySelector('.episode-title-select').value;
+        const customTitle = card.querySelector('.episode-custom-input').value.trim();
 
-        if (!selectedTitle) allTitlesSelected = false;
+        card.classList.remove('correct-card', 'wrong-card');
 
-        const isOrderOk = actualEp === expectedEp;
-        const isTitleOk = selectedTitle === actualEp;
+        const orderOk = (actualCorrectOrder === expectedOrder);
+        if (!orderOk) allOrderCorrect = false;
 
-        if (isOrderOk) orderCorrectCount++;
-        if (isTitleOk) titlesCorrectCount++;
+        if (!selectedTitle && !customTitle) {
+          missingTitle = true;
+        }
 
-        if (isOrderOk && isTitleOk) {
+        const titleOk = (selectedTitle === actualCorrectOrder) || (customTitle.length >= 3);
+        if (!titleOk) allTitlesValid = false;
+
+        if (orderOk && titleOk) {
           card.classList.add('correct-card');
-          card.classList.remove('wrong-card');
         } else {
           card.classList.add('wrong-card');
-          card.classList.remove('correct-card');
         }
       });
 
-      if (!allTitlesSelected) {
-        fb.textContent = "გთხოვ, ოთხივე ეპიზოდს შეურჩიე სათაური და შემდეგ დააჭირე შემოწმებას.";
+      if (missingTitle) {
+        fb.textContent = "გთხოვ, ოთხივე ილუსტრაციას შეურჩიო ან ჩაუწერო სათაური.";
         fb.className = "feedback show hint";
-        return;
-      }
-
-      if (orderCorrectCount === 4 && titlesCorrectCount === 4) {
-        fb.textContent = "ბრავო! ოთხივე ეპიზოდი სწორი თანმიმდევრობით დაალაგე და სათაურებიც ზუსტად შეურჩიე!";
+      } else if (allOrderCorrect && allTitlesValid) {
+        fb.textContent = "ბრავო! ოთხივე ეპიზოდი ზუსტი თანმიმდევრობით დაალაგე და სათაურებიც სწორად შეურჩიე!";
         fb.className = "feedback show success";
-      } else {
-        fb.textContent = `სწორ ადგილზე დგას ${orderCorrectCount}/4 ეპიზოდი, სწორი სათაური აქვს ${titlesCorrectCount}/4 ეპიზოდს. წითლად მონიშნული ბარათები კიდევ ერთხელ გადაამოწმე!`;
+      } else if (!allOrderCorrect) {
+        fb.textContent = "ეპიზოდების თანმიმდევრობა ჯერ არ არის სწორი. კიდევ ერთხელ გაიხსენე, რა მოხდა პირველად, მეორედ, მესამედ და ბოლოს.";
         fb.className = "feedback show error";
+      } else {
+        fb.textContent = "თანმიმდევრობა სწორია, მაგრამ ერთ-ერთი ილუსტრაციის სათაური არ ემთხვევა ნახატს.";
+        fb.className = "feedback show hint";
       }
     });
 
-    // დავალება 8: ჯადოსნური ნივთის დამატება
-    document.getElementById('magic-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = document.getElementById('magic-input');
+    // 5. ჯადოსნური ნივთების დამატება (დავალება 8)
+    document.getElementById('add-magic-btn').addEventListener('click', () => {
+      const input = document.getElementById('magic-item-input');
       const fb = document.getElementById('magic-feedback');
       const val = input.value.trim();
 
       if (val.length < 3) {
-        fb.textContent = "გთხოვ, ჩაწერე ჯადოსნური ნივთის სახელი (მინიმუმ 3 ასო).";
+        fb.textContent = "გთხოვ, ჩაწერო ჯადოსნური ნივთის სახელი (მინიმუმ 3 ასო).";
         fb.className = "feedback show error";
         return;
       }
